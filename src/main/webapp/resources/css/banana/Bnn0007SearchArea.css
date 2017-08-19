@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+/* Area info popup styles */
+.area-info-popup {
+	width: 780px;
+	height: 600px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+
+.height250 {
+	height: 250px;
+}
+.height400 {
+	height: 400px;
+}
+.content-popup {
+	width: 700px!important;
+	position: relative;
+}
+.cont-box-popup {
+	width: 95%!important;
+	margin: auto;	
+}
+#tblBodyPopup  tr:first-child  td {
+	border-top: none !important;
+}
+#divBodyPopup{
+	overflow-x: hidden;
+	border-bottom: 1px solid #808080;
+}
+.bg_FFFF80 {
+	background: #FFFF80;
+}
+.width50 {
+	width: 50% !important;
+}
+.width40 {
+	width: 40% !important;  
+}
+
+.width10{
+	width: 10% !important;
+}
+.tbl-line-title {
+    float: left;
+    text-align: left;
+    padding-right: 5px;
+    width: 110px;
+    vertical-align: middle;
+    margin-bottom: 0px;
+}
+.areaId {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+.tbl-line-item {
+	width: 250px;
+}
+.btn-search-clear {
+	width: 61px !important;
+}
+.txtarea-lv90 {
+	line-height: 1;
+}
+.tbl-left {
+	float: left;
+	margin-bottom: 3px;
+	text-align: left;
+	width: 160px;
+}
+.txt-lv0 {
+	width: 80px;
+}
+.tblPager {
+	width: 283px;
+}
+.btnPage {
+	width: 150px;
+}

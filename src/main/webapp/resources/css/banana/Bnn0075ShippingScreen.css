@@ -1,0 +1,50 @@
+@CHARSET "UTF-8";
+/* Area info popup styles */
+
+.shipping-info-popup {
+	width: 680px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+
+.width110{
+	width: 110px !important;
+}
+
+.width145{
+	width: 145px !important;
+}
+
+.width67{
+	width: 67px !important;
+}
+
+.width90{
+	width: 90px !important;
+}
+
+.height35{
+	height: 35px !important;
+}
+
+.margin-left150{
+	margin-left: 150px !important;
+}
+
+.margin-bottom20{
+	margin-bottom: 20px !important;
+}
+
+.margin-top20 {
+	margin-top: 20px !important;
+}
+
+.margin-top0 {
+	margin-top: 0px !important;
+}
+.tbl-box-popup {
+		margin: 30px 20px;
+}

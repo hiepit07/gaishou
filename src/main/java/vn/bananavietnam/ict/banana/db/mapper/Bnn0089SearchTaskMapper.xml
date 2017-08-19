@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0089SearchTaskMapper">
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult">
+		SELECT 
+		    T.TASK_ID taskId,
+		    T.TASK_NAME taskName,
+		    T.WORKING_DETAILS workingDetails,
+		    T.NOTE note,
+		    T.QUARANTINE_HANDLING_FLAG 	quarantineHandlingFlag,
+		    T.DELETE_FLAG deleteFlag,
+		    T.CHANGE_POINT_CODE changePointCode,
+		    T.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_TASK T
+		WHERE 1 = 1
+		<if test="taskName != ''">
+			AND T.TASK_NAME LIKE #{taskName}
+		</if>
+		<!-- <if test="deleteFlag != ''">
+			AND T.DELETE_FLAG = #{deleteFlag}
+		</if> -->
+		AND T.DELETE_FLAG = '0'
+		ORDER BY T.TASK_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM IVB_M_TASK T
+		WHERE 1 = 1
+		<if test="taskName != ''">
+			AND T.TASK_NAME LIKE #{taskName}
+		</if>
+		<!-- <if test="deleteFlag != ''">
+			AND T.DELETE_FLAG = #{deleteFlag}
+		</if> -->
+		AND T.DELETE_FLAG = '0'
+		ORDER BY T.TASK_ID
+	</select>
+	<select id="getLastTaskId" flushCache="true" resultType="java.lang.String">
+		SELECT TASK_ID taskId
+		FROM IVB_M_TASK
+		ORDER BY TASK_ID DESC
+		LIMIT 1
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_TASK
+		SET 
+			<if test="taskName != null" >
+	        	TASK_NAME = #{taskName,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="workingDetails != null" >
+	       		WORKING_DETAILS = #{workingDetails,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="note != null" >
+	       		NOTE = #{note,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="quarantineHandlingFlag != null" >
+	       		QUARANTINE_HANDLING_FLAG = #{quarantineHandlingFlag,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="changePointCode != null" >
+	       		CHANGE_POINT_CODE = #{changePointCode,jdbcType=VARCHAR},
+	      	</if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE TASK_ID = #{taskId} AND LAST_UPDATE_DATE = #{lastUpdateDate} AND DELETE_FLAG = '0'
+	</update>
+</mapper>

@@ -1,0 +1,124 @@
+/* Product adjust popup styles */
+.productAdjust-popup {
+	width: 860px;
+	height: 550px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+
+/* Block info popup styles */
+.blockinfo-popup {
+	width: 700px;
+	height: 350px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+/* Set Width for popup Content */
+.width50 {
+	width: 50% !important;
+}
+
+.width40 {
+	width: 40% !important;
+}
+
+.width30pc{
+	width: 30% !important;
+}
+
+.width24pc{
+	width: 24% !important;
+}
+
+.width40pc{
+	width: 40% !important;
+}
+
+.width90pc{
+	width: 90% !important;
+}
+
+.margin-top21 {
+	margin-top: 21px !important;
+}
+
+.div-block-guide {
+	border: 1px dashed #808080;
+}
+
+.block-guide-center {
+	text-align: center;
+}
+
+.div-cr-block-guide {
+	margin-right: 5px;
+	width: 35px;
+	min-width:15px;
+	height: 17px;
+	border: 1px solid black;
+	font-size: small;
+	text-align: center;
+	background-color: #40d8e6;
+}
+/* Table */
+.table-block-guide{
+	margin: 20px 20px;
+}
+.table-block-guide th{
+	border: 1px solid black;
+	height: 35px;
+	vertical-align: middle;
+}
+.table-block-guide td{
+	border: 1px solid black;
+	height: 70px;
+	vertical-align: bottom;
+}
+
+/* Height*/
+.height480 {
+	height: 480px;
+}
+
+.height450 {
+	height: 450px;
+}
+/* Background Color */
+.darkKhaki {
+	background-color: darkKhaki;
+}
+.tbl-line-title {
+    float: left;
+    text-align: left;
+    padding-right: 5px;
+    width: 100px!important;
+    vertical-align: middle;
+    margin-bottom: 0px;
+}
+.tbl-line-item {
+	width: 160px;
+}
+
+.group-button-0009 {
+	clear: both;
+	height: 40px;
+	margin: 0 auto;
+	width: 265px;
+}
+
+a {
+	text-decoration: underline;
+	color: blue;
+}
+.tblPager {
+	width: 283px;
+}
+.btnPage {
+	width: 150px;
+}

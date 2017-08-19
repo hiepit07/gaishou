@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0087SearchAffiliationMapper">
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult">
+		SELECT 	usr.userName userName,
+				usr.userId	 userId ,
+				authorization.AUTHORIZATION_TYPE_NAME typeName,
+				authorization.AUTHORIZATION_TYPE_ID typeId,
+				mgr.farmIdList farmIdList,
+				mgr.areaIdList areaIdList,
+				mgr.lastUpdateDate lastUpdateDate
+		FROM
+		(SELECT users.USERS_NAME userName,
+			users.USERS_ID 	userId
+			FROM IVB_M_USERS users WHERE 1 = 1
+			<if test="usersName != ''">
+				AND users.USERS_NAME LIKE #{usersName}
+			</if>
+			AND users.DELETE_FLAG = '0') usr
+		<if test="authorityId != '-2'">
+		INNER JOIN 
+		</if>
+		<if test="authorityId == '-2'">
+		LEFT JOIN 
+		</if>
+			(SELECT manager.USERS_ID userId,
+					manager.AUTHORIZATION_TYPE_ID typeId,
+					(SELECT LAST_UPDATE_DATE FROM IVB_M_MANAGER ORDER BY LAST_UPDATE_DATE DESC LIMIT 1) lastUpdateDate,
+					GROUP_CONCAT(manager.FARM_ID SEPARATOR ',') as farmIdList,
+					GROUP_CONCAT(manager.AREA_ID SEPARATOR ',') as areaIdList
+			FROM IVB_M_MANAGER manager
+			WHERE 1 = 1
+			<if test="authorityId != '-2'">
+				AND manager.AUTHORIZATION_TYPE_ID LIKE #{authorityId}
+			</if>
+			AND manager.DELETE_FLAG = '0'
+			GROUP BY manager.USERS_ID, manager.AUTHORIZATION_TYPE_ID) mgr
+		ON usr.userId = mgr.userId
+		LEFT JOIN  
+			 IVB_M_AUTHORIZATION authorization ON authorization.AUTHORIZATION_TYPE_ID = mgr.typeId
+		ORDER BY usr.userName, authorization.AUTHORIZATION_TYPE_ID
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+			FROM
+		(SELECT users.USERS_NAME userName,
+			users.USERS_ID 	userId
+			FROM IVB_M_USERS users WHERE 1 = 1
+			<if test="usersName != ''">
+				AND users.USERS_NAME LIKE #{usersName}
+			</if>
+			AND users.DELETE_FLAG = '0') usr
+		<if test="authorityId != '-2'">
+		
+		INNER JOIN 
+		</if>
+		<if test="authorityId == '-2'">
+		LEFT JOIN 
+		</if>
+			(SELECT manager.USERS_ID userId,
+					manager.AUTHORIZATION_TYPE_ID typeId
+			FROM IVB_M_MANAGER manager
+			WHERE 1 = 1
+			<if test="authorityId != '-2'">
+				AND manager.AUTHORIZATION_TYPE_ID LIKE #{authorityId}
+			</if>
+			AND manager.DELETE_FLAG = '0'
+			GROUP BY manager.USERS_ID, manager.AUTHORIZATION_TYPE_ID) mgr
+		ON usr.userId = mgr.userId
+		LEFT JOIN  
+			 IVB_M_AUTHORIZATION authorization ON authorization.AUTHORIZATION_TYPE_ID = mgr.typeId
+		ORDER BY usr.userId
+	</select>
+	
+	<update id = "updateDeleteFlag" parameterType = "map">
+      UPDATE IVB_M_MANAGER  
+      SET DELETE_FLAG = #{flag}
+      WHERE USERS_ID = #{userId} AND AUTHORIZATION_TYPE_ID = #{typeId}
+   </update>
+   
+    <select id="selectDataFarm" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0088SearchFarmResult">
+		SELECT 
+			farm.FARM_NAME farmName,
+			farm.FARM_ID farmId
+		FROM IVB_M_FARM farm
+		WHERE farm.DELETE_FLAG = '0'
+		ORDER BY farm.FARM_NAME
+	</select>
+	
+	<select id="selectDataArea" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0088SearchAreaResult">
+		SELECT DISTINCT
+			farm.FARM_NAME farmName,
+			farm.FARM_ID farmId,
+			area.AREA_NAME areaName,
+			area.AREA_ID areaId,
+			area.AREA_MANAGER areaManager,
+		    (SELECT USERS_NAME FROM IVB_M_USERS WHERE USERS_ID = AREA_MANAGER) usersName
+		FROM IVB_M_AREA area 
+		INNER JOIN IVB_M_FARM farm ON farm.FARM_ID = area.FARM_ID
+			WHERE farm.DELETE_FLAG = '0' AND area.DELETE_FLAG = '0'
+		ORDER BY farm.FARM_NAME, area.AREA_NAME
+	</select>
+	
+	<delete id="deleteData" parameterType="map" >
+   		DELETE from IVB_M_MANAGER
+   		WHERE USERS_ID = #{userId}
+   		<if test="authorityId != 'null'">
+      		AND AUTHORIZATION_TYPE_ID = #{authorityId}
+      	</if>
+   		AND LAST_UPDATE_DATE &lt;= #{lastUpdateDate}
+	</delete>
+  
+   <select id="checkAreaManager" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0088SearchAreaResult">
+		SELECT 
+			FARM_ID farmId,
+			AREA_ID areaId
+		FROM IVB_M_AREA WHERE AREA_MANAGER = #{userId} AND DELETE_FLAG = '0'
+	</select>
+
+	<select id="getLastUpdateDate" flushCache="true" parameterType="map" resultType="java.util.Date">
+   		SELECT 	M.LAST_UPDATE_DATE lastUpdateDate
+   		FROM 	IVB_M_MANAGER M
+		WHERE	M.USERS_ID 				= #{userId}
+   		<if test="authorityId != 'null'">
+      		AND		M.AUTHORIZATION_TYPE_ID = #{authorityId}
+      	</if>
+      	ORDER BY M.LAST_UPDATE_DATE DESC
+      	LIMIT 1
+	</select>
+</mapper>

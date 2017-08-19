@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0009SearchBlockMapper">
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0009SearchBlockResult">
+		SELECT farm.FARM_ID farmId,
+			farm.FARM_NAME farmName,
+			area.AREA_ID areaId,
+			area.AREA_NAME areaName,
+			block.BLOCK_ID blockId,
+			block.BLOCK_NAME blockName,
+			block.DELETE_FLAG deleteFlag,
+			block.NOTE note,
+			block.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_BLOCK block
+		<!-- IVB_M_FARM table -->
+		LEFT JOIN IVB_M_FARM farm
+		ON block.FARM_ID = farm.FARM_ID
+		<!-- IVB_M_AREA table -->
+		LEFT JOIN IVB_M_AREA area
+		ON block.FARM_ID = area.FARM_ID
+		AND block.AREA_ID = area.AREA_ID
+		WHERE 1 = 1
+		<if test="farmId != '-2'">
+			AND block.FARM_ID = #{farmId}
+		</if>
+		<if test="areaId != '-2'">
+			AND block.AREA_ID = #{areaId}
+		</if>
+		<if test="blockId != '-2'">
+			AND block.BLOCK_ID = #{blockId}
+		</if>
+		AND block.DELETE_FLAG = '0'
+		AND farm.DELETE_FLAG = '0'
+		AND area.DELETE_FLAG = '0'
+		ORDER BY block.BLOCK_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM IVB_M_BLOCK block
+		<!-- IVB_M_FARM table -->
+		LEFT JOIN IVB_M_FARM farm
+		ON block.FARM_ID = farm.FARM_ID
+		<!-- IVB_M_AREA table -->
+		LEFT JOIN IVB_M_AREA area
+		ON block.FARM_ID = area.FARM_ID
+		AND block.AREA_ID = area.AREA_ID
+		WHERE 1 = 1
+		<if test="farmId != '-2'">
+			AND block.FARM_ID = #{farmId}
+		</if>
+		<if test="areaId != '-2'">
+			AND block.AREA_ID = #{areaId}
+		</if>
+		<if test="blockId != '-2'">
+			AND block.BLOCK_ID = #{blockId}
+		</if>
+		AND block.DELETE_FLAG = '0'
+		AND farm.DELETE_FLAG = '0'
+		AND area.DELETE_FLAG = '0'
+		ORDER BY block.BLOCK_ID
+	</select>
+
+	<select id="insertData" flushCache="true" parameterType="map" resultType="map" statementType="CALLABLE">
+		{call create_data_block_line_product(
+			#{farmId, jdbcType=VARCHAR, mode=IN},
+			#{areaId, jdbcType=VARCHAR, mode=IN},
+			#{blockId, jdbcType=VARCHAR, mode=IN},
+			#{blockName, jdbcType=VARCHAR, mode=IN},
+			#{usersId, jdbcType=VARCHAR, mode=IN},
+			#{deleteFlag, jdbcType=VARCHAR, mode=IN},
+			#{note, jdbcType=VARCHAR, mode=IN},
+			#{numberOfLines, jdbcType=NUMERIC, mode=IN},
+			#{numberOfColumns, jdbcType=NUMERIC, mode=IN},
+			#{cultivationStartDate, jdbcType=DATE, mode=IN},
+			#{result, jdbcType=VARCHAR, javaType=String, mode=OUT}
+		)}
+	</select>
+
+	<select id="deleteData" flushCache="true" parameterType="map" resultType="map" statementType="CALLABLE">
+		{call delete_data_block_product(
+			#{farmId, jdbcType=VARCHAR, mode=IN},
+			#{areaId, jdbcType=VARCHAR, mode=IN},
+			#{blockId, jdbcType=VARCHAR, mode=IN},
+			#{lastUpdateDate, jdbcType=VARCHAR, mode=IN},
+			#{result, jdbcType=VARCHAR, javaType=String, mode=OUT}
+		)}
+	</select>
+	<select id="searchBlockNameByFarmIdAndAreaId" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0009SearchBlockResult">
+		SELECT 	B.BLOCK_NAME blockName,
+				B.BLOCK_ID blockId
+		FROM IVB_M_BLOCK B 
+		WHERE 	B.FARM_ID = #{farmId}
+				AND B.AREA_ID = #{areaId}
+				AND B.DELETE_FLAG = '0'
+		ORDER BY B.BLOCK_ID
+	</select>
+	<select id="getLastBlockId" flushCache="true" resultType="java.lang.String">
+		SELECT BLOCK_ID blockId
+		FROM IVB_M_BLOCK
+		WHERE 	FARM_ID = #{farmId}
+				AND AREA_ID = #{areaId}
+				AND BLOCK_ID != ${blockDefault}
+		ORDER BY BLOCK_ID DESC
+		LIMIT 0,1
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_BLOCK
+		SET 
+			  <if test="farmId != null" >
+		        FARM_ID = #{farmId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="areaId != null" >
+		        AREA_ID = #{areaId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="blockId != null" >
+		        BLOCK_ID = #{blockId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="blockName != null" >
+		        BLOCK_NAME = #{blockName,jdbcType=VARCHAR},
+		      </if>
+		      <if test="note != null" >
+		        NOTE = #{note,jdbcType=VARCHAR},
+		      </if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE FARM_ID = #{farmId} AND AREA_ID = #{areaId} AND BLOCK_ID = #{blockId} AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+</mapper>

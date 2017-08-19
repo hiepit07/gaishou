@@ -1,0 +1,69 @@
+06-05-2017 15:45:49.858,DEBUG,Request [/ict/0087/] is not a multipart request
+06-05-2017 15:45:49.858,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/0087/]
+06-05-2017 15:45:49.858,DEBUG,Looking up handler method for path /0087/
+06-05-2017 15:45:49.858,DEBUG,Returning handler method [public java.lang.String vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.top(javax.servlet.http.HttpServletRequest,java.util.Locale,org.springframework.ui.Model)]
+06-05-2017 15:45:49.858,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:45:49.858,DEBUG,Last-Modified value for [/ict/0087/] is: -1
+06-05-2017 15:45:49.859,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:45:49.859,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:45:49.891,DEBUG,Rendering view [org.springframework.web.servlet.view.JstlView: name 'banana/Bnn0087SearchAffiliation'; URL [/WEB-INF/views/banana/Bnn0087SearchAffiliation.jsp]] in DispatcherServlet with name 'appServlet'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'affiliationData' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'resetDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'layoutDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'jqueryUiCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'messageHandlerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'jqueryDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'jqueryUiDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'datepickerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'inputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'jqueryInputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'inputMaskExtDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'calendarDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'messageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'storageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'commonDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'holeDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'hole_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'plantedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'planted_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'fosteringDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'fostering_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'flowerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'flower_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'baggedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'bagged_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'cultivatedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'cultivated_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'disableDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'disable_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'removedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'icon_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'icon_refDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'icon_delDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'none_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'searchAffiliationCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.891,DEBUG,Added model object 'searchAffiliationJsDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.892,DEBUG,Forwarding to resource [/WEB-INF/views/banana/Bnn0087SearchAffiliation.jsp] in InternalResourceView 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:45:49.900,DEBUG,Successfully completed request
+06-05-2017 15:45:49.909,DEBUG,Request [/ict/resources/js/banana/Bnn0087SearchAffiliation.js] is not a multipart request
+06-05-2017 15:45:49.909,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/js/banana/Bnn0087SearchAffiliation.js]
+06-05-2017 15:45:49.909,DEBUG,Looking up handler method for path /resources/js/banana/Bnn0087SearchAffiliation.js
+06-05-2017 15:45:49.913,DEBUG,Did not find handler method for [/resources/js/banana/Bnn0087SearchAffiliation.js]
+06-05-2017 15:45:49.913,DEBUG,Matching patterns for request [/resources/js/banana/Bnn0087SearchAffiliation.js] are [/resources/**]
+06-05-2017 15:45:49.913,DEBUG,URI Template variables for request [/resources/js/banana/Bnn0087SearchAffiliation.js] are {}
+06-05-2017 15:45:49.913,DEBUG,Mapping [/resources/js/banana/Bnn0087SearchAffiliation.js] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:45:49.913,DEBUG,Last-Modified value for [/ict/resources/js/banana/Bnn0087SearchAffiliation.js] is: -1
+06-05-2017 15:45:49.913,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:45:50.110,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:45:50.110,DEBUG,Successfully completed request
+06-05-2017 15:45:50.155,DEBUG,Request [/ict/0087/searchData] is not a multipart request
+06-05-2017 15:45:50.155,DEBUG,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0087/searchData]
+06-05-2017 15:45:50.155,DEBUG,Looking up handler method for path /0087/searchData
+06-05-2017 15:45:50.155,DEBUG,Returning handler method [public java.util.List<vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult> vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.searchData(vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions)]
+06-05-2017 15:45:50.155,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:45:50.156,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:45:50.157,DEBUG,Read [class vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:45:50.158,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:45:50.198,DEBUG,Written [[vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@28e150, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1ac810e, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@12c397f, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@19dff27, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@74b265, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1ddf094, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@16ec091, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1967f5c, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@6c0d11, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@6f08d8, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1922d4c, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@130cb3d, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@13446cf, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@15fabb9, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@19b1a93, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@17533e, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1d470cd, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@10a162d, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@80c79d, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@4cee10]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:45:50.198,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:45:50.199,DEBUG,Successfully completed request

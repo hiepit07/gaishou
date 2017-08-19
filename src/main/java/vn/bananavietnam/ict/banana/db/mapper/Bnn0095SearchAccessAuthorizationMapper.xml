@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0095SearchAccessAuthorizationMapper">
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0095SearchAccessAuthorizationResult">
+		SELECT 
+			ACA.ACCESS_AUTHORITY_ID accessAuthorityId,
+		    ACA.SCREEN_ID screenId,
+		    ACA.SCREEN_DISPLAY_ENABLE_FLAG screenDisplayEnableFlag,
+		    ACA.ADDABLE_FLAG addableFlag,
+		    ACA.UPDATABLE_FLAG updatableFlag,
+		    ACA.DELETABLE_FLAG deletableFlag,
+		    ACA.REFERENCE_FLAG referenceFlag,
+		    ACA.DELETE_FLAG deleteFlag,
+		    ACA.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_ACCESS_AUTHORIZATION ACA
+		WHERE 1 = 1
+		<if test="accessAuthorityId != ''">
+			AND ACA.ACCESS_AUTHORITY_ID = #{accessAuthorityId}
+		</if>
+		<if test="screenId != ''">
+			AND ACA.SCREEN_ID LIKE #{screenId}
+		</if>
+		<if test="screenDisplayEnableFlag != '-2'">
+			AND ACA.SCREEN_DISPLAY_ENABLE_FLAG = #{screenDisplayEnableFlag}
+		</if>
+		<if test="addableFlag != '-2'">
+			AND ACA.ADDABLE_FLAG = #{addableFlag}
+		</if>
+		<if test="updatableFlag != '-2'">
+			AND ACA.UPDATABLE_FLAG = #{updatableFlag}
+		</if>
+		<if test="deletableFlag != '-2'">
+			AND ACA.DELETABLE_FLAG = #{deletableFlag}
+		</if>
+		<if test="referenceFlag != '-2'">
+			AND ACA.REFERENCE_FLAG = #{referenceFlag}
+		</if>
+		AND ACA.DELETE_FLAG = '0'
+		ORDER BY ACA.ACCESS_AUTHORITY_ID,ACA.SCREEN_ID
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+
+	<select id="searchSingleData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0095SearchAccessAuthorizationResult">
+		SELECT 
+			ACA.ACCESS_AUTHORITY_ID accessAuthorityId,
+		    ACA.SCREEN_ID screenId,
+		    ACA.SCREEN_DISPLAY_ENABLE_FLAG screenDisplayEnableFlag,
+		    ACA.ADDABLE_FLAG addableFlag,
+		    ACA.UPDATABLE_FLAG updatableFlag,
+		    ACA.DELETABLE_FLAG deletableFlag,
+		    ACA.REFERENCE_FLAG referenceFlag,
+		    ACA.DELETE_FLAG deleteFlag,
+		    ACA.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_ACCESS_AUTHORIZATION ACA
+		WHERE 1 = 1
+			AND ACA.ACCESS_AUTHORITY_ID = #{accessAuthorityId}
+			AND ACA.SCREEN_ID = #{screenId}
+			<if test = "deleteFlag != ''">
+				AND ACA.DELETE_FLAG = #{deleteFlag}
+			</if>
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM IVB_M_ACCESS_AUTHORIZATION ACA
+		WHERE 1 = 1
+		<if test="accessAuthorityId != ''">
+			AND ACA.ACCESS_AUTHORITY_ID = #{accessAuthorityId}
+		</if>
+		<if test="screenId != ''">
+			AND ACA.SCREEN_ID LIKE #{screenId}
+		</if>
+		<if test="screenDisplayEnableFlag != '-2'">
+			AND ACA.SCREEN_DISPLAY_ENABLE_FLAG = #{screenDisplayEnableFlag}
+		</if>
+		<if test="addableFlag != '-2'">
+			AND ACA.ADDABLE_FLAG = #{addableFlag}
+		</if>
+		<if test="updatableFlag != '-2'">
+			AND ACA.UPDATABLE_FLAG = #{updatableFlag}
+		</if>
+		<if test="deletableFlag != '-2'">
+			AND ACA.DELETABLE_FLAG = #{deletableFlag}
+		</if>
+		<if test="referenceFlag != '-2'">
+			AND ACA.REFERENCE_FLAG = #{referenceFlag}
+		</if>
+		AND ACA.DELETE_FLAG = '0'
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_ACCESS_AUTHORIZATION
+		SET 
+			  <if test="accessAuthorityId != null" >
+		        ACCESS_AUTHORITY_ID = #{accessAuthorityId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="screenId != null" >
+		        SCREEN_ID = #{screenId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="screenDisplayEnableFlag != null" >
+		        SCREEN_DISPLAY_ENABLE_FLAG = #{screenDisplayEnableFlag,jdbcType=BIT},
+		      </if>
+		      <if test="addableFlag != null" >
+		        ADDABLE_FLAG = #{addableFlag,jdbcType=BIT},
+		      </if>
+		      <if test="updatableFlag != null" >
+		        UPDATABLE_FLAG = #{updatableFlag,jdbcType=BIT},
+		      </if>
+		      <if test="deletableFlag != null" >
+		        DELETABLE_FLAG = #{deletableFlag,jdbcType=BIT},
+		      </if>
+		      <if test="referenceFlag != null" >
+		        REFERENCE_FLAG = #{referenceFlag,jdbcType=BIT},
+		      </if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE ACCESS_AUTHORITY_ID = #{accessAuthorityId} AND SCREEN_ID = #{screenId} AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+
+	<update id="deleteData" parameterType="map">
+		UPDATE IVB_M_ACCESS_AUTHORIZATION
+		SET 
+			  <if test="accessAuthorityId != null" >
+		        ACCESS_AUTHORITY_ID = #{accessAuthorityId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="screenId != null" >
+		        SCREEN_ID = #{screenId,jdbcType=VARCHAR},
+		      </if>
+      			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+				LAST_UPDATE_DATE = NOW(),
+				DELETE_FLAG = #{deleteFlag}  
+    	WHERE ACCESS_AUTHORITY_ID = #{accessAuthorityId} AND SCREEN_ID = #{screenId} AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+</mapper>

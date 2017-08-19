@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0035BlockUpdateMapper">
+
+	<select id="getAreaAndKindDataFromMaster" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0035AreaExtendObject">
+		SELECT area.AREA_ID areaId,
+				area.AREA_NAME areaName,
+				area.KIND_ID kindId,
+				(SELECT KIND_NAME FROM IVB_M_KIND WHERE KIND_ID = area.KIND_ID) kindName
+		FROM IVB_M_AREA area
+
+		<!-- WHERE CLAUSE -->
+		WHERE area.FARM_ID = #{farmId}
+		AND area.DELETE_FLAG = #{deleteFlag}
+	</select>
+
+	<select id="getAreaAndKindDataFromAffiliation" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0035AreaExtendObject">
+		SELECT manager.AREA_ID areaId,
+				area.AREA_NAME areaName,
+				area.KIND_ID kindId,
+				(SELECT KIND_NAME FROM IVB_M_KIND WHERE KIND_ID = area.KIND_ID) kindName
+		FROM IVB_M_MANAGER manager
+		
+		<!-- LEFT JOIN CLAUSE -->
+		INNER JOIN IVB_M_AREA area 
+		ON area.AREA_ID = manager.AREA_ID 
+		AND area.FARM_ID = manager.FARM_ID
+		AND area.DELETE_FLAG = #{deleteFlag}
+		
+		<!-- WHERE CLAUSE -->
+		WHERE manager.USERS_ID = #{usersId}
+			AND manager.FARM_ID = #{farmId}
+			AND manager.DELETE_FLAG = #{deleteFlag}
+			
+		ORDER BY area.AREA_NAME
+	</select>
+
+	<select id="getCultivationResultData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.BnnBlockCultivationResult">
+		SELECT cultivation_result.FARM_ID farmId,
+				cultivation_result.AREA_ID areaId,
+		        cultivation_result.BLOCK_ID blockId,
+		        block.BLOCK_NAME blockName,
+		        cultivation_result.PREVIOUS_ROUND previousRound,
+		        DATE_FORMAT(cultivation_result.WORKING_DATE, '%d/%m/%Y') workingDateString,
+		        cultivation_result.PROCESS_ID processId,
+		        (SELECT PROCESS_NAME FROM IVB_M_PROCESS WHERE PROCESS_ID = processId) processName,
+		        cultivation.PROCESS_ORDER processOrder,
+		        cultivation_result.TASK_ID taskId,
+		        (SELECT TASK_NAME FROM IVB_M_TASK WHERE TASK_ID = taskId) taskName,
+		        cultivation.TASK_ORDER taskOrder,
+		        (SELECT CHANGE_POINT_CODE FROM IVB_M_TASK WHERE TASK_ID = taskId) changePointCode,
+		        (SELECT WORKING_DETAILS FROM IVB_M_TASK WHERE TASK_ID = taskId) workingContent,
+		        (SELECT NOTE FROM IVB_M_TASK WHERE TASK_ID = taskId) precaution,
+		        cultivation_result.STATUS_ID statusId,
+		        (SELECT STATUS_NAME FROM IVB_M_STATUS WHERE FARM_ID = cultivation_result.FARM_ID AND STATUS_ID = statusId) statusName,
+		        cultivation_result.NOTE note,
+		        cultivation_result.LAST_UPDATE_DATE lastUpdateDateCultivation,
+		        product.LAST_UPDATE_DATE lastUpdateDateProduct
+		FROM
+
+		<!-- SELECT CLAUSE -->
+			(SELECT t1.FARM_ID,
+					t1.AREA_ID,
+					t1.BLOCK_ID,
+					t1.PREVIOUS_ROUND,
+					t1.WORKING_DATE,
+		            t1.PROCESS_ID,
+		            t1.TASK_ID,
+		            t1.STATUS_ID,
+		            t1.NOTE, t1.LAST_UPDATE_DATE
+			FROM IVB_T_CULTIVATION_RESULT t1
+			LEFT JOIN IVB_T_CULTIVATION_RESULT t2
+			ON t1.FARM_ID = t2.FARM_ID
+			AND t1.AREA_ID = t2.AREA_ID
+			AND t1.BLOCK_ID = t2.BLOCK_ID
+			AND t1.LINE_ID = t2.LINE_ID
+			AND t1.COLUMN_ID = t2.COLUMN_ID
+			AND t1.PREVIOUS_ROUND = t2.PREVIOUS_ROUND
+		    AND t1.DELETE_FLAG = #{deleteFlag}
+		    AND t2.DELETE_FLAG = #{deleteFlag}
+		    AND t1.PREVIOUS_ROUND = #{previousRound}
+		    AND t2.PREVIOUS_ROUND = #{previousRound}
+			AND t1.WORKING_DATE &lt; t2.WORKING_DATE
+			WHERE t2.WORKING_DATE IS NULL
+			AND t1.FARM_ID = #{farmId}
+			AND t1.AREA_ID = #{areaId}
+			AND t1.DELETE_FLAG = #{deleteFlag}
+			AND t1.PREVIOUS_ROUND = #{previousRound}
+			AND t1.BLOCK_WORK_FLAG = #{blockWorkFlag}
+		    ) cultivation_result
+
+		INNER JOIN (SELECT FARM_ID, AREA_ID, BLOCK_ID, LAST_UPDATE_DATE
+		FROM IVB_T_PRODUCT
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND PREVIOUS_ROUND = #{previousRound}
+		ORDER BY LAST_UPDATE_DATE DESC
+		LIMIT 1 ) product
+		ON cultivation_result.FARM_ID = product.FARM_ID
+		AND cultivation_result.AREA_ID = product.AREA_ID
+
+		<!-- INNER JOIN CLAUSE -->
+		INNER JOIN IVB_M_CULTIVATION cultivation
+		ON cultivation_result.FARM_ID = cultivation.FARM_ID
+		AND cultivation_result.PROCESS_ID = cultivation.PROCESS_ID
+		AND cultivation_result.TASK_ID = cultivation.TASK_ID
+
+		<!-- INNER JOIN CLAUSE -->
+		INNER JOIN IVB_M_BLOCK block
+		ON cultivation_result.FARM_ID = block.FARM_ID
+		AND cultivation_result.AREA_ID = block.AREA_ID
+		AND cultivation_result.BLOCK_ID = block.BLOCK_ID
+
+		<!-- WHERE CLAUSE -->
+		WHERE cultivation.KIND_ID = #{kindId}
+		AND cultivation.DELETE_FLAG = #{deleteFlag}
+		AND cultivation.BLOCK_WORK_FLAG = #{blockWorkFlag}
+		AND block.DELETE_FLAG = #{deleteFlag}
+
+		<!-- ORDER BY CLAUSE -->
+		ORDER BY workingDateString DESC,
+				processOrder DESC,
+		        taskOrder DESC,
+		        blockId ASC
+	</select>
+
+	<select id="getProcessData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMProcess">
+		SELECT cultivation.PROCESS_ID processId,
+				process.PROCESS_NAME processName
+		FROM IVB_M_CULTIVATION cultivation
+
+		<!-- INNER JOIN CLAUSE -->
+		INNER JOIN IVB_M_PROCESS process
+		ON cultivation.PROCESS_ID = process.PROCESS_ID
+
+		<!-- WHERE CLAUSE -->
+		WHERE cultivation.FARM_ID = #{farmId}
+		AND cultivation.KIND_ID = #{kindId}
+		AND cultivation.DELETE_FLAG = #{deleteFlag}
+		AND cultivation.BLOCK_WORK_FLAG = #{blockWorkFlag}
+		AND process.DELETE_FLAG = #{deleteFlag}
+
+		<!-- GROUP BY CLAUSE -->
+		GROUP BY processId, processName
+	</select>
+
+	<select id="getTaskData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMTask">
+		SELECT cultivation.TASK_ID taskId,
+				task.TASK_NAME taskName,
+				task.WORKING_DETAILS workingDetails,
+				task.NOTE note,
+				task.CHANGE_POINT_CODE changePointCode
+		FROM IVB_M_CULTIVATION cultivation
+
+		<!-- INNER JOIN CLAUSE -->
+		INNER JOIN IVB_M_TASK task
+		ON cultivation.TASK_ID = task.TASK_ID
+
+		<!-- WHERE CLAUSE -->
+		WHERE cultivation.FARM_ID = #{farmId}
+		AND cultivation.KIND_ID = #{kindId}
+		AND cultivation.PROCESS_ID = #{processId}
+		AND cultivation.DELETE_FLAG = #{deleteFlag}
+		AND cultivation.BLOCK_WORK_FLAG = #{blockWorkFlag}
+		AND task.DELETE_FLAG = #{deleteFlag}
+	</select>
+
+	<update id="updateCultivationStartDate" parameterType="map">
+		UPDATE IVB_T_PRODUCT
+		SET CULTIVATION_START_DATE = #{defaultCultivationStartDate},
+			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW()
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND BLOCK_ID = #{blockId}
+			AND LINE_ID = #{lineId}
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND LAST_UPDATE_DATE &lt;= #{lastUpdateDate}
+	</update>
+
+	<update id="updateProductPlantingDate" parameterType="map">
+		UPDATE IVB_T_PRODUCT
+		SET PLANTING_DATE = NULL,
+			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW()
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND BLOCK_ID = #{blockId}
+			AND LINE_ID = #{lineId}
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND LAST_UPDATE_DATE &lt;= #{lastUpdateDate}
+	</update>
+
+	<update id="updateProductFloweringDate" parameterType="map">
+		UPDATE IVB_T_PRODUCT
+		SET FLOWERING_DATE = NULL,
+			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW()
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND BLOCK_ID = #{blockId}
+			AND LINE_ID = #{lineId}
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND LAST_UPDATE_DATE &lt;= #{lastUpdateDate}
+	</update>
+
+	<update id="updateProductBaggedDate" parameterType="map">
+		UPDATE IVB_T_PRODUCT
+		SET BAG_CLOSING_DATE = NULL,
+			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW()
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND BLOCK_ID = #{blockId}
+			AND LINE_ID = #{lineId}
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND LAST_UPDATE_DATE &lt;= #{lastUpdateDate}
+	</update>
+	
+	<update id="updateProductHarvestedDate" parameterType="map">
+		UPDATE IVB_T_PRODUCT
+		SET HARVEST_DATE = NULL,
+			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW()
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND BLOCK_ID = #{blockId}
+			AND LINE_ID = #{lineId}
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND LAST_UPDATE_DATE &lt;= #{lastUpdateDate}
+	</update>
+	
+	<update id="updateProductDate" parameterType="map">
+		UPDATE IVB_T_PRODUCT P, (
+    			SELECT MAX(LAST_UPDATE_DATE) as _LAST_UPDATE_DATE
+    			FROM IVB_T_PRODUCT
+    			WHERE AREA_ID = #{areaId} 
+    				AND FARM_ID = #{farmId}
+    				AND BLOCK_ID = #{blockId}
+    				AND PREVIOUS_ROUND = #{previousRound}
+    		) LAST_UPDATE_DATE_TBL
+		SET 
+			<if test="defaultCultivationStartDate != null">
+				P.CULTIVATION_START_DATE = #{defaultCultivationStartDate},
+			</if>
+			<if test="plantingDate != null">
+				P.PLANTING_DATE = #{plantingDate},
+			</if>
+			<if test="floweringDate != null">
+				P.FLOWERING_DATE = #{floweringDate},
+			</if>
+			<if test="bagDate != null">
+				P.BAG_CLOSING_DATE = #{bagDate},
+			</if>
+			<if test="harvestDate != null">
+				P.HARVEST_DATE = #{harvestDate},
+			</if>
+			P.UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			P.LAST_UPDATE_DATE = NOW()
+		WHERE P.FARM_ID = #{farmId}
+			AND P.AREA_ID = #{areaId}
+			AND P.BLOCK_ID = #{blockId}
+			AND P.PREVIOUS_ROUND = #{previousRound}
+			AND P.DELETE_FLAG = #{deleteFlag}
+			AND #{lastUpdateDate} &gt;= LAST_UPDATE_DATE_TBL._LAST_UPDATE_DATE
+	</update>
+	
+	<select flushCache="true" id="getLastUpdateDateProduct" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbTProduct">
+		SELECT LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_T_PRODUCT
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			<if test="blockId != null">
+				AND BLOCK_ID = #{blockId}
+			</if>			
+			AND PREVIOUS_ROUND = #{previousRound}
+		ORDER BY LAST_UPDATE_DATE DESC
+		LIMIT 1
+	</select>
+	
+	<select flushCache="true" id="getProductData" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbTProductKey">
+		SELECT LINE_ID lineId, COLUMN_ID columnId
+		FROM IVB_T_PRODUCT
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID = #{areaId}
+			AND BLOCK_ID = #{blockId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			<if test="deleteFlag != null">
+				AND DELETE_FLAG = #{deleteFlag}
+			</if>
+	</select>
+	
+	<select flushCache="true" id="getLastUpdateDateCultivation" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbTCultivationResult">
+		SELECT LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_T_CULTIVATION_RESULT
+		WHERE FARM_ID = #{farmId} 
+			AND AREA_ID = #{areaId} 
+			AND BLOCK_ID = #{blockId} 
+			AND LINE_ID = #{lineId} 
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND WORKING_DATE = #{workingDate}
+			AND PROCESS_ID = #{processId}
+			AND TASK_ID = #{taskId}
+			AND DELETE_FLAG = '0'
+	</select>
+	
+	<update id="updateData" parameterType="map">
+		DELETE FROM IVB_T_CULTIVATION_RESULT
+		WHERE FARM_ID = #{farmId} 
+			AND AREA_ID = #{areaId} 
+			AND BLOCK_ID = #{blockId} 
+			AND LINE_ID = #{lineId} 
+			AND COLUMN_ID = #{columnId}
+			AND PREVIOUS_ROUND = #{previousRound}
+			AND WORKING_DATE = #{workingDate}
+			AND PROCESS_ID = #{processId}
+			AND TASK_ID = #{taskId}
+			AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+</mapper>

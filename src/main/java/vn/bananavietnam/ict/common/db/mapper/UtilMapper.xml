@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.common.db.mapper.UtilMapper">
+
+	<select flushCache="true" id="selectFarmDataMaster" parameterType="map" resultType="vn.bananavietnam.ict.common.component.UtilComponent">
+		SELECT F.FARM_ID farmId
+				, F.FARM_NAME farmName
+		FROM IVB_M_FARM F
+		WHERE F.DELETE_FLAG = '0'
+		ORDER BY F.FARM_NAME
+	</select>
+	<select flushCache="true" id="selectFarmData" parameterType="map" resultType="vn.bananavietnam.ict.common.component.UtilComponent">
+		SELECT DISTINCT	M.FARM_ID farmId
+				, F.FARM_NAME farmName
+		FROM IVB_M_MANAGER M
+		LEFT join IVB_M_FARM F ON F.FARM_ID = M.FARM_ID
+		WHERE M.USERS_ID = #{usersId}
+			AND F.DELETE_FLAG = '0'
+			AND M.DELETE_FLAG = '0'
+		ORDER BY F.FARM_NAME
+	</select>
+	<select flushCache="true" id="selectAreaDataByFarmIdMaster" parameterType="map" resultType="vn.bananavietnam.ict.common.component.UtilComponent">
+		SELECT A.AREA_ID areaId
+				, A.AREA_NAME areaName
+		FROM IVB_M_AREA A
+		WHERE A.DELETE_FLAG = '0'
+		<if test="farmId != '-2'">
+			AND A.FARM_ID = #{farmId}
+		</if>
+		ORDER BY A.AREA_NAME
+	</select>
+	<select flushCache="true" id="selectAreaDataByFarmId" parameterType="map" resultType="vn.bananavietnam.ict.common.component.UtilComponent">
+		SELECT	DISTINCT M.FARM_ID farmId
+				, F.FARM_NAME farmName
+				, M.AREA_ID areaId
+				, A.AREA_NAME areaName
+		FROM IVB_M_MANAGER M
+		LEFT join IVB_M_AREA A ON A.AREA_ID = M.AREA_ID And A.FARM_ID = M.FARM_ID
+		LEFT join IVB_M_FARM F ON F.FARM_ID = M.FARM_ID
+		WHERE M.USERS_ID = #{usersId}
+		<if test="farmId != '-2'">
+			AND M.FARM_ID = #{farmId}
+		</if>
+			AND F.DELETE_FLAG = '0'
+			AND M.DELETE_FLAG = '0'
+			AND A.DELETE_FLAG = '0'
+		ORDER BY F.FARM_NAME, A.AREA_NAME
+	</select>
+</mapper>

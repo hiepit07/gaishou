@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0017SearchBananaKindMapper">
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0017SearchBananaKindResult">
+		SELECT KIND_ID kindId,
+			KIND_NAME kindName,
+			PROSPECTIVE_HARVEST_AMOUNT prospectiveHarvestAmount,
+			ESTIMATED_DAYS_FLOWERING estimatedDaysFlowering,
+			ESTIMATED_DAYS_BAGGING estimatedDaysBagging,
+			ESTIMATED_DAYS_HARVEST estimatedDaysHarvest,
+			DELETE_FLAG deleteFlag,
+			LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_KIND
+		WHERE 1 = 1
+		<if test="kindName != ''">
+			AND KIND_NAME LIKE #{kindName}
+		</if>
+		AND DELETE_FLAG = '0'
+		ORDER BY KIND_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM IVB_M_KIND
+		WHERE 1 = 1
+		<if test="kindName != ''">
+			AND KIND_NAME LIKE #{kindName}
+		</if>
+		AND DELETE_FLAG = '0'
+		ORDER BY KIND_ID
+	</select>
+	<select id="getLastKindId" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT KIND_ID kindId
+		FROM IVB_M_KIND
+		WHERE KIND_ID != ${kindDefault}
+		ORDER BY KIND_ID DESC
+		LIMIT 1
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_KIND
+		SET 
+			<if test="kindName != null" >
+	        	KIND_NAME = #{kindName,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="ProspectiveHarvestAmount != null" >
+	       		PROSPECTIVE_HARVEST_AMOUNT = #{ProspectiveHarvestAmount,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="EstimatedDaysFlowering != null" >
+	       		ESTIMATED_DAYS_FLOWERING = #{EstimatedDaysFlowering,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="EstimatedDaysBagging != null" >
+	       		ESTIMATED_DAYS_BAGGING = #{EstimatedDaysBagging,jdbcType=VARCHAR},
+	      	</if>
+	      	<if test="EstimatedDaysHarvest != null" >
+	       		ESTIMATED_DAYS_HARVEST = #{EstimatedDaysHarvest,jdbcType=VARCHAR},
+	      	</if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE KIND_ID = #{kindId} AND LAST_UPDATE_DATE = #{lastUpdateDate} AND DELETE_FLAG = '0'
+	</update>
+</mapper>

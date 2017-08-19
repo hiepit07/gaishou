@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+/* Status info popup styles */
+
+.height250 {
+	height: 250px;
+}
+.height400 {
+	height: 400px;
+}
+.content-popup {
+	width: 700px!important;
+	position: relative;
+}
+.cont-box-popup {
+	width: 95%!important;
+	margin: auto;	
+}
+#tblBodyPopup  tr:first-child  td {
+	border-top: none !important;
+}
+#divBodyPopup{
+	overflow-x: hidden;
+	border-bottom: 1px solid #808080;
+}
+.bg_FFFF80 {
+	background: #FFFF80;
+}

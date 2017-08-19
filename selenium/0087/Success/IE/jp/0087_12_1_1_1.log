@@ -1,0 +1,110 @@
+06-05-2017 15:45:58.770,DEBUG,Request [/ict/0001/] is not a multipart request
+06-05-2017 15:45:58.770,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/0001/]
+06-05-2017 15:45:58.770,DEBUG,Looking up handler method for path /0001/
+06-05-2017 15:45:58.770,DEBUG,Returning handler method [public java.lang.String vn.bananavietnam.ict.banana.controller.Bnn0001BananaMenuController.top(javax.servlet.http.HttpServletRequest,java.util.Locale,org.springframework.ui.Model)]
+06-05-2017 15:45:58.770,DEBUG,Returning cached instance of singleton bean 'bnn0001BananaMenuController'
+06-05-2017 15:45:58.770,DEBUG,Last-Modified value for [/ict/0001/] is: -1
+06-05-2017 15:45:58.770,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:45:58.776,DEBUG,Rendering view [org.springframework.web.servlet.view.JstlView: name 'banana/Bnn0001BananaMenu'; URL [/WEB-INF/views/banana/Bnn0001BananaMenu.jsp]] in DispatcherServlet with name 'appServlet'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'resetDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'layoutDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'jqueryUiCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'messageHandlerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'jqueryDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'jqueryUiDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'datepickerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'inputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.776,DEBUG,Added model object 'jqueryInputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.779,DEBUG,Added model object 'inputMaskExtDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.779,DEBUG,Added model object 'calendarDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'messageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'storageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'commonDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'holeDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'hole_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'plantedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'planted_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'fosteringDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'fostering_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'flowerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'flower_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'baggedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'bagged_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'cultivatedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'cultivated_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'disableDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'disable_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'removedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'icon_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'icon_refDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'icon_delDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'none_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'bananaMenuCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.780,DEBUG,Added model object 'bananaMenuJsDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.781,DEBUG,Forwarding to resource [/WEB-INF/views/banana/Bnn0001BananaMenu.jsp] in InternalResourceView 'banana/Bnn0001BananaMenu'
+06-05-2017 15:45:58.789,DEBUG,Successfully completed request
+06-05-2017 15:46:01.582,DEBUG,Request [/ict/] is not a multipart request
+06-05-2017 15:46:01.582,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/]
+06-05-2017 15:46:01.582,DEBUG,Looking up handler method for path /
+06-05-2017 15:46:01.583,DEBUG,Returning handler method [public java.lang.String vn.bananavietnam.ict.common.controller.AuthController.login()]
+06-05-2017 15:46:01.583,DEBUG,Returning cached instance of singleton bean 'authController'
+06-05-2017 15:46:01.583,DEBUG,Last-Modified value for [/ict/] is: -1
+06-05-2017 15:46:01.583,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:46:01.583,DEBUG,Rendering view [org.springframework.web.servlet.view.JstlView: name 'common/PageWrapper'; URL [/WEB-INF/views/common/PageWrapper.jsp]] in DispatcherServlet with name 'appServlet'
+06-05-2017 15:46:01.584,DEBUG,Forwarding to resource [/WEB-INF/views/common/PageWrapper.jsp] in InternalResourceView 'common/PageWrapper'
+06-05-2017 15:46:01.591,DEBUG,Successfully completed request
+06-05-2017 15:46:01.598,DEBUG,Request [/ict/login/] is not a multipart request
+06-05-2017 15:46:01.598,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/login/]
+06-05-2017 15:46:01.598,DEBUG,Looking up handler method for path /login/
+06-05-2017 15:46:01.598,DEBUG,Returning handler method [public java.lang.String vn.bananavietnam.ict.common.controller.LoginController.top(java.util.Locale,org.springframework.ui.Model)]
+06-05-2017 15:46:01.598,DEBUG,Returning cached instance of singleton bean 'loginController'
+06-05-2017 15:46:01.599,DEBUG,Last-Modified value for [/ict/login/] is: -1
+06-05-2017 15:46:01.599,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:46:01.599,DEBUG,Rendering view [org.springframework.web.servlet.view.JstlView: name 'common/login'; URL [/WEB-INF/views/common/login.jsp]] in DispatcherServlet with name 'appServlet'
+06-05-2017 15:46:01.599,DEBUG,Forwarding to resource [/WEB-INF/views/common/login.jsp] in InternalResourceView 'common/login'
+06-05-2017 15:46:01.626,DEBUG,Successfully completed request
+06-05-2017 15:46:02.822,DEBUG,Request [/ict/0001/] is not a multipart request
+06-05-2017 15:46:02.822,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/0001/]
+06-05-2017 15:46:02.822,DEBUG,Looking up handler method for path /0001/
+06-05-2017 15:46:02.822,DEBUG,Returning handler method [public java.lang.String vn.bananavietnam.ict.banana.controller.Bnn0001BananaMenuController.top(javax.servlet.http.HttpServletRequest,java.util.Locale,org.springframework.ui.Model)]
+06-05-2017 15:46:02.822,DEBUG,Returning cached instance of singleton bean 'bnn0001BananaMenuController'
+06-05-2017 15:46:02.822,DEBUG,Last-Modified value for [/ict/0001/] is: -1
+06-05-2017 15:46:02.822,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:46:02.827,DEBUG,Rendering view [org.springframework.web.servlet.view.JstlView: name 'banana/Bnn0001BananaMenu'; URL [/WEB-INF/views/banana/Bnn0001BananaMenu.jsp]] in DispatcherServlet with name 'appServlet'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'resetDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'layoutDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'jqueryUiCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'messageHandlerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'jqueryDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'jqueryUiDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'datepickerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'inputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'jqueryInputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'inputMaskExtDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'calendarDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'messageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'storageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'commonDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'holeDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'hole_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'plantedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'planted_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'fosteringDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'fostering_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'flowerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'flower_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'baggedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'bagged_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'cultivatedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'cultivated_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'disableDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'disable_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'removedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'icon_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'icon_refDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'icon_delDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'none_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'bananaMenuCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.828,DEBUG,Added model object 'bananaMenuJsDate' of type [java.lang.String] to request in view with name 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:02.829,DEBUG,Forwarding to resource [/WEB-INF/views/banana/Bnn0001BananaMenu.jsp] in InternalResourceView 'banana/Bnn0001BananaMenu'
+06-05-2017 15:46:03.197,DEBUG,Successfully completed request

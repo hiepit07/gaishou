@@ -1,0 +1,36 @@
+@CHARSET "UTF-8";
+/* Area info popup styles */
+.area-info-popup {
+	width: 700px;
+	height: 390px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+
+.height250 {
+	height: 250px;
+}
+.height400 {
+	height: 400px;
+}
+.content-popup {
+	width: 700px!important;
+	position: relative;
+}
+.cont-box-popup {
+	width: 95%!important;
+	margin: auto;	
+}
+#tblBodyPopup  tr:first-child  td {
+	border-top: none !important;
+}
+#divBodyPopup{
+	overflow-x: hidden;
+	border-bottom: 1px solid #808080;
+}
+.bg_FFFF80 {
+	background: #FFFF80;
+}

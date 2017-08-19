@@ -1,0 +1,169 @@
+06-05-2017 15:48:42.384,DEBUG,Request [/ict/0087/] is not a multipart request
+06-05-2017 15:48:42.385,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/0087/]
+06-05-2017 15:48:42.385,DEBUG,Looking up handler method for path /0087/
+06-05-2017 15:48:42.385,DEBUG,Returning handler method [public java.lang.String vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.top(javax.servlet.http.HttpServletRequest,java.util.Locale,org.springframework.ui.Model)]
+06-05-2017 15:48:42.385,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:48:42.385,DEBUG,Last-Modified value for [/ict/0087/] is: -1
+06-05-2017 15:48:42.386,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.387,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:48:42.411,DEBUG,Rendering view [org.springframework.web.servlet.view.JstlView: name 'banana/Bnn0087SearchAffiliation'; URL [/WEB-INF/views/banana/Bnn0087SearchAffiliation.jsp]] in DispatcherServlet with name 'appServlet'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'affiliationData' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'resetDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'layoutDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'jqueryUiCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'messageHandlerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'jqueryDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'jqueryUiDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'datepickerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'inputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'jqueryInputmaskDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'inputMaskExtDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'calendarDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'messageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'storageDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'commonDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'holeDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'hole_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'plantedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'planted_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'fosteringDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'fostering_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.411,DEBUG,Added model object 'flowerDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'flower_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'baggedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'bagged_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'cultivatedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'cultivated_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'disableDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'disable_checkDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'removedDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'icon_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'icon_refDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'icon_delDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'none_editDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'searchAffiliationCssDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Added model object 'searchAffiliationJsDate' of type [java.lang.String] to request in view with name 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.412,DEBUG,Forwarding to resource [/WEB-INF/views/banana/Bnn0087SearchAffiliation.jsp] in InternalResourceView 'banana/Bnn0087SearchAffiliation'
+06-05-2017 15:48:42.420,DEBUG,Successfully completed request
+06-05-2017 15:48:42.447,DEBUG,Request [/ict/resources/js/banana/Bnn0087SearchAffiliation.js] is not a multipart request
+06-05-2017 15:48:42.448,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/js/banana/Bnn0087SearchAffiliation.js]
+06-05-2017 15:48:42.448,DEBUG,Looking up handler method for path /resources/js/banana/Bnn0087SearchAffiliation.js
+06-05-2017 15:48:42.448,DEBUG,Request [/ict/resources/css/banana/Bnn0087SearchAffiliation.css] is not a multipart request
+06-05-2017 15:48:42.448,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/css/banana/Bnn0087SearchAffiliation.css]
+06-05-2017 15:48:42.448,DEBUG,Looking up handler method for path /resources/css/banana/Bnn0087SearchAffiliation.css
+06-05-2017 15:48:42.449,DEBUG,Did not find handler method for [/resources/js/banana/Bnn0087SearchAffiliation.js]
+06-05-2017 15:48:42.449,DEBUG,Did not find handler method for [/resources/css/banana/Bnn0087SearchAffiliation.css]
+06-05-2017 15:48:42.449,DEBUG,Matching patterns for request [/resources/js/banana/Bnn0087SearchAffiliation.js] are [/resources/**]
+06-05-2017 15:48:42.449,DEBUG,Matching patterns for request [/resources/css/banana/Bnn0087SearchAffiliation.css] are [/resources/**]
+06-05-2017 15:48:42.449,DEBUG,URI Template variables for request [/resources/js/banana/Bnn0087SearchAffiliation.js] are {}
+06-05-2017 15:48:42.449,DEBUG,URI Template variables for request [/resources/css/banana/Bnn0087SearchAffiliation.css] are {}
+06-05-2017 15:48:42.449,DEBUG,Mapping [/resources/js/banana/Bnn0087SearchAffiliation.js] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.449,DEBUG,Mapping [/resources/css/banana/Bnn0087SearchAffiliation.css] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.449,DEBUG,Last-Modified value for [/ict/resources/js/banana/Bnn0087SearchAffiliation.js] is: -1
+06-05-2017 15:48:42.449,DEBUG,Last-Modified value for [/ict/resources/css/banana/Bnn0087SearchAffiliation.css] is: -1
+06-05-2017 15:48:42.449,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.449,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.450,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.450,DEBUG,Successfully completed request
+06-05-2017 15:48:42.451,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.451,DEBUG,Successfully completed request
+06-05-2017 15:48:42.525,DEBUG,Request [/ict/0087/searchData] is not a multipart request
+06-05-2017 15:48:42.526,DEBUG,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0087/searchData]
+06-05-2017 15:48:42.526,DEBUG,Looking up handler method for path /0087/searchData
+06-05-2017 15:48:42.526,DEBUG,Returning handler method [public java.util.List<vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult> vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.searchData(vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions)]
+06-05-2017 15:48:42.526,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:48:42.526,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.526,DEBUG,Skip CORS processing: request is from same origin
+06-05-2017 15:48:42.526,DEBUG,Read [class vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:42.527,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:48:42.559,DEBUG,Written [[vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1c97977, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@a6b24f, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1139778, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@196b43, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@a7ac36, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1c641e7, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@aba730, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1059655, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@64509f, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@150e80d, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@954ab0, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1e9de89, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@16b9283, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1410a63, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1c10f31, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@b38316, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@153fcc9, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@30f592, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1b9cd22, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@1d85430]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:42.559,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.559,DEBUG,Successfully completed request
+06-05-2017 15:48:42.570,DEBUG,Request [/ict/resources/img/ic_first.png] is not a multipart request
+06-05-2017 15:48:42.570,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_first.png]
+06-05-2017 15:48:42.570,DEBUG,Request [/ict/resources/img/ic_last.png] is not a multipart request
+06-05-2017 15:48:42.570,DEBUG,Looking up handler method for path /resources/img/ic_first.png
+06-05-2017 15:48:42.570,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_last.png]
+06-05-2017 15:48:42.570,DEBUG,Request [/ict/resources/img/ic_next.png] is not a multipart request
+06-05-2017 15:48:42.570,DEBUG,Looking up handler method for path /resources/img/ic_last.png
+06-05-2017 15:48:42.570,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_next.png]
+06-05-2017 15:48:42.570,DEBUG,Looking up handler method for path /resources/img/ic_next.png
+06-05-2017 15:48:42.571,DEBUG,Did not find handler method for [/resources/img/ic_last.png]
+06-05-2017 15:48:42.571,DEBUG,Did not find handler method for [/resources/img/ic_next.png]
+06-05-2017 15:48:42.571,DEBUG,Matching patterns for request [/resources/img/ic_last.png] are [/resources/**]
+06-05-2017 15:48:42.571,DEBUG,Matching patterns for request [/resources/img/ic_next.png] are [/resources/**]
+06-05-2017 15:48:42.571,DEBUG,URI Template variables for request [/resources/img/ic_last.png] are {}
+06-05-2017 15:48:42.571,DEBUG,URI Template variables for request [/resources/img/ic_next.png] are {}
+06-05-2017 15:48:42.571,DEBUG,Mapping [/resources/img/ic_last.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.571,DEBUG,Mapping [/resources/img/ic_next.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.571,DEBUG,Last-Modified value for [/ict/resources/img/ic_last.png] is: -1
+06-05-2017 15:48:42.571,DEBUG,Last-Modified value for [/ict/resources/img/ic_next.png] is: -1
+06-05-2017 15:48:42.571,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.571,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.571,DEBUG,Request [/ict/resources/img/ic_pre.png] is not a multipart request
+06-05-2017 15:48:42.572,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_pre.png]
+06-05-2017 15:48:42.572,DEBUG,Looking up handler method for path /resources/img/ic_pre.png
+06-05-2017 15:48:42.573,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.573,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.573,DEBUG,Successfully completed request
+06-05-2017 15:48:42.573,DEBUG,Successfully completed request
+06-05-2017 15:48:42.573,DEBUG,Did not find handler method for [/resources/img/ic_first.png]
+06-05-2017 15:48:42.573,DEBUG,Matching patterns for request [/resources/img/ic_first.png] are [/resources/**]
+06-05-2017 15:48:42.573,DEBUG,URI Template variables for request [/resources/img/ic_first.png] are {}
+06-05-2017 15:48:42.573,DEBUG,Mapping [/resources/img/ic_first.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.573,DEBUG,Last-Modified value for [/ict/resources/img/ic_first.png] is: -1
+06-05-2017 15:48:42.573,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.574,DEBUG,Did not find handler method for [/resources/img/ic_pre.png]
+06-05-2017 15:48:42.574,DEBUG,Matching patterns for request [/resources/img/ic_pre.png] are [/resources/**]
+06-05-2017 15:48:42.574,DEBUG,URI Template variables for request [/resources/img/ic_pre.png] are {}
+06-05-2017 15:48:42.574,DEBUG,Mapping [/resources/img/ic_pre.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.574,DEBUG,Last-Modified value for [/ict/resources/img/ic_pre.png] is: -1
+06-05-2017 15:48:42.574,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.574,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.575,DEBUG,Successfully completed request
+06-05-2017 15:48:42.575,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.575,DEBUG,Successfully completed request
+06-05-2017 15:48:42.614,DEBUG,Request [/ict/resources/img/icon_del.png] is not a multipart request
+06-05-2017 15:48:42.614,DEBUG,Request [/ict/resources/img/ic_pre_dis.png] is not a multipart request
+06-05-2017 15:48:42.614,DEBUG,Request [/ict/resources/img/ic_first_dis.png] is not a multipart request
+06-05-2017 15:48:42.614,DEBUG,Request [/ict/resources/img/icon_edit.png] is not a multipart request
+06-05-2017 15:48:42.614,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/icon_del.png]
+06-05-2017 15:48:42.614,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_first_dis.png]
+06-05-2017 15:48:42.614,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_pre_dis.png]
+06-05-2017 15:48:42.614,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/icon_edit.png]
+06-05-2017 15:48:42.614,DEBUG,Looking up handler method for path /resources/img/ic_first_dis.png
+06-05-2017 15:48:42.614,DEBUG,Looking up handler method for path /resources/img/icon_del.png
+06-05-2017 15:48:42.614,DEBUG,Looking up handler method for path /resources/img/icon_edit.png
+06-05-2017 15:48:42.615,DEBUG,Did not find handler method for [/resources/img/icon_del.png]
+06-05-2017 15:48:42.614,DEBUG,Looking up handler method for path /resources/img/ic_pre_dis.png
+06-05-2017 15:48:42.615,DEBUG,Did not find handler method for [/resources/img/icon_edit.png]
+06-05-2017 15:48:42.615,DEBUG,Matching patterns for request [/resources/img/icon_del.png] are [/resources/**]
+06-05-2017 15:48:42.615,DEBUG,Did not find handler method for [/resources/img/ic_first_dis.png]
+06-05-2017 15:48:42.615,DEBUG,Matching patterns for request [/resources/img/icon_edit.png] are [/resources/**]
+06-05-2017 15:48:42.615,DEBUG,URI Template variables for request [/resources/img/icon_del.png] are {}
+06-05-2017 15:48:42.615,DEBUG,URI Template variables for request [/resources/img/icon_edit.png] are {}
+06-05-2017 15:48:42.615,DEBUG,Matching patterns for request [/resources/img/ic_first_dis.png] are [/resources/**]
+06-05-2017 15:48:42.615,DEBUG,Mapping [/resources/img/icon_edit.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.615,DEBUG,Mapping [/resources/img/icon_del.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.615,DEBUG,URI Template variables for request [/resources/img/ic_first_dis.png] are {}
+06-05-2017 15:48:42.615,DEBUG,Last-Modified value for [/ict/resources/img/icon_edit.png] is: -1
+06-05-2017 15:48:42.615,DEBUG,Last-Modified value for [/ict/resources/img/icon_del.png] is: -1
+06-05-2017 15:48:42.615,DEBUG,Mapping [/resources/img/ic_first_dis.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.615,DEBUG,Last-Modified value for [/ict/resources/img/ic_first_dis.png] is: -1
+06-05-2017 15:48:42.615,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.615,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.615,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.616,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.616,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.616,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.616,DEBUG,Successfully completed request
+06-05-2017 15:48:42.616,DEBUG,Successfully completed request
+06-05-2017 15:48:42.616,DEBUG,Successfully completed request
+06-05-2017 15:48:42.618,DEBUG,Did not find handler method for [/resources/img/ic_pre_dis.png]
+06-05-2017 15:48:42.618,DEBUG,Matching patterns for request [/resources/img/ic_pre_dis.png] are [/resources/**]
+06-05-2017 15:48:42.618,DEBUG,URI Template variables for request [/resources/img/ic_pre_dis.png] are {}
+06-05-2017 15:48:42.618,DEBUG,Mapping [/resources/img/ic_pre_dis.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:42.618,DEBUG,Last-Modified value for [/ict/resources/img/ic_pre_dis.png] is: -1
+06-05-2017 15:48:42.618,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:42.619,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:42.619,DEBUG,Successfully completed request

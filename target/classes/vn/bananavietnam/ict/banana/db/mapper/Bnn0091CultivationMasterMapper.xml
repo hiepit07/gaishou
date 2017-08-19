@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0091CultivationMasterMapper">
+	<select id="getUnregisteredTask" flushCache="true" parameterType="vn.bananavietnam.ict.common.db.model.IvbMCultivation" resultType="vn.bananavietnam.ict.common.db.model.IvbMTask">
+		SELECT 	T.TASK_ID	taskId,
+				T.TASK_NAME	taskName
+		FROM 	IVB_M_TASK 			T
+		WHERE 	T.TASK_ID NOT IN(
+			SELECT 	C.TASK_ID 
+			FROM 	IVB_M_CULTIVATION 	C
+			WHERE	C.FARM_ID 		= #{farmId}
+			AND		C.KIND_ID 		= #{kindId}
+			AND		C.PROCESS_ID 	= #{processId})
+		AND		T.DELETE_FLAG	= 0
+		ORDER BY T.TASK_NAME
+	</select>
+	<select id="getRegisteredTask" flushCache="true" parameterType="vn.bananavietnam.ict.common.db.model.IvbMCultivation" resultType="vn.bananavietnam.ict.banana.component.Bnn0091CultivationMasterDataObject">
+		SELECT 	C.TASK_ID			taskId,
+				T.TASK_NAME			taskName,
+		        C.BLOCK_WORK_FLAG	blockFlag,
+		        (SELECT LAST_UPDATE_DATE
+				FROM 	IVB_M_CULTIVATION
+				WHERE 	FARM_ID 	= #{farmId}
+				AND 	KIND_ID 	= #{kindId}
+				AND		PROCESS_ID 	= #{processId}
+				ORDER BY LAST_UPDATE_DATE DESC
+				LIMIT 1) 			lastUpdateDate
+		FROM 		IVB_M_CULTIVATION	C
+		LEFT JOIN	IVB_M_TASK			T	
+		ON		C.TASK_ID 		= T.TASK_ID
+		WHERE 	C.FARM_ID 		= #{farmId}
+		AND 	C.KIND_ID 		= #{kindId}
+		AND		C.PROCESS_ID 	= #{processId}
+		ORDER BY C.TASK_ORDER
+	</select>
+	<select id="getLastUpdateDate" flushCache="true" parameterType="vn.bananavietnam.ict.banana.component.Bnn0091CultivationMasterDataObject" resultType="java.util.Date">
+		SELECT 	C.LAST_UPDATE_DATE 	lastUpdateDate
+		FROM 	IVB_M_CULTIVATION 	C
+		WHERE 	C.FARM_ID 		= #{farmId}
+		AND 	C.KIND_ID 		= #{kindId}
+		AND		C.PROCESS_ID 	= #{processId}
+		ORDER BY C.LAST_UPDATE_DATE DESC
+		LIMIT 1
+	</select>
+	<select id="getUnregisteredProcessTotal" flushCache="true" parameterType="vn.bananavietnam.ict.common.db.model.IvbMCultivation" resultType="java.lang.String">
+		SELECT 	COUNT(*)
+		FROM 	IVB_M_CULTIVATION 	C
+		WHERE	C.FARM_ID 		= #{farmId}
+		AND		C.KIND_ID 		= #{kindId}
+		AND		C.PROCESS_ORDER = 0
+		AND		C.DELETE_FLAG	= 0
+	</select>
+</mapper>

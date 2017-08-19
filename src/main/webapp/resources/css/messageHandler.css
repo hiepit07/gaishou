@@ -1,0 +1,80 @@
+#popup_container {
+	font-family: Arial, sans-serif;
+	font-size: 12px;
+	min-width: 300px; /* Dialog will be no smaller than this */
+	max-width: 600px; /* Dialog will wrap after this width */
+	background: #FFF;
+	border: solid 2px #999;
+	color: #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+}
+
+#popup_title {
+	font-size: 14px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 1.75em;
+	color: #FFF;
+	background: #18a7b4;
+	/*background: -moz-linear-gradient(top,  #18a7b4 0%, #16a00d 100%);
+	background: -webkit-linear-gradient(top,  #18a7b4 0%,#16a00d 100%);
+	background: linear-gradient(to bottom,  #18a7b4 0%,#16a00d 100%);*/
+	border: solid 1px #FFF;
+	border-bottom: solid 1px #999;
+	cursor: default;
+	padding: 0em;
+	margin: 0em;
+}
+
+#popup_content {
+	padding: 1em 1.75em;
+	margin: 0em;
+}
+
+#popup_content.info {
+	background: 16px 16px no-repeat url("../img/icon_info.png");
+}
+
+#popup_content.warning {
+	background: 16px 16px no-repeat url("../img/icon_warning.png");
+}
+
+#popup_content.question_confirm {
+	background: 16px 16px no-repeat url("../img/icon_question.png");
+}
+
+#popup_content.info_confirm {
+	background: 16px 16px no-repeat url("../img/icon_info.png");
+}
+
+#popup_content.confirm div#popup_message {
+	padding-left: 12px !important;
+}
+
+#popup_content.error {
+	background: 16px 16px no-repeat url("../img/icon_error.png");
+}
+
+#popup_content.question_warning {
+	background: 16px 16px no-repeat url("../img/icon_warning.png");
+}
+
+#popup_message {
+	padding-left: 48px;
+}
+
+#popup_panel {
+	text-align: center;
+	margin: 1em 0em 0em 1em;
+}
+
+#popup_prompt {
+	margin: .5em 0em;
+}
+
+#popup_ok, #popup_cancel {
+	width: 50px;
+	height: 22px;
+}

@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* ==========================================================================
+0005 STYLES
+========================================================================== */
+
+.goBnn0007 {
+	color: blue;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+/* ==========================================================================
+POPUP LAYOUT GENERAL STYLES 
+============================================================================= */
+/* User info popup styles */
+.farminfo-popup {
+	width: 700px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}

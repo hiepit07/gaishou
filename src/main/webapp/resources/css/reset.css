@@ -1,0 +1,121 @@
+﻿@charset "UTF-8";
+/*	 ========================================================================== */
+/* RESET STYLES
+  ========================================================================== */
+
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strong, sub, sup, var, b, u, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, main, menu, nav, output, ruby, section, summary, time, mark, audio, video, button {
+    border: 0 none;
+    font: inherit;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, main {
+    display: block;
+}
+html {
+    font-size: 87.5%;
+}
+dt, dd, li, caption, th, td, col, h1, h2, h3, h4, h5, h6, p, address, figcaption {
+    font-size: 100%;
+}
+dd p, dd dt, dd dd, dd li, dd th, dd td, dd col, li p, li dt, li dd, li li, li th, li td, li col, th p, th dt, th dd, th li, th th, th td, th col, td p, td dt, td dd, td li, td th, td td, td col {
+    font-size: 100%;
+}
+ol, ul {
+    list-style: outside none none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote::before, blockquote::after, q::before, q::after {
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+caption {
+    text-align: left;
+}
+th, td {
+    vertical-align: top;
+}
+input[type="text"], input[type="password"], input[type="number"], input[type="tel"] {
+    line-height: normal;
+    margin: 0;
+}
+input[type="image"] {
+    cursor: pointer;
+    vertical-align: top;
+}
+textarea {
+    margin: 0;
+    resize: vertical;
+    vertical-align: top;
+}
+html.safari select, html.chrome select {
+    border-color: #a6a6a6;
+}
+address {
+    font-style: normal;
+    font-weight: normal;
+}
+h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+}
+img {
+    vertical-align: top;
+}
+object, embed, iframe {
+    max-width: 100%;
+    outline: medium none;
+    vertical-align: top;
+}
+em, strong {
+    font-style: normal;
+    font-weight: normal;
+}
+mark {
+    background-color: inherit;
+    color: inherit;
+    font-weight: bold;
+}
+sup, sub {
+    font-size: 0.75em;
+}
+sup {
+    vertical-align: super;
+}
+sub {
+    vertical-align: sub;
+}
+body {
+	font-family: Arial,Verdana,"Lucida Grande","ＭＳ Ｐゴシック","ヒラギノ角ゴ Pro W3",sans-serif;
+	font-size: 100%;
+	line-height: 1.6;
+}
+input, textarea, select {
+	font-family: Arial,Verdana,"Lucida Grande","ＭＳ Ｐゴシック","ヒラギノ角ゴ Pro W3",sans-serif;
+	margin: 0;
+}
+input[type="text"],input[type="password"] {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+input[type="radio"] {
+	vertical-align: middle;
+}
+input[type="checkbox"] {
+	vertical-align: middle;
+}
+select {
+	height: 22px;
+}
+label {
+	vertical-align: middle;
+ 	margin-bottom: 3px;
+}
+button {
+	cursor: pointer;
+}

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:sec="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="
+  http://www.springframework.org/schema/beans
+  http://www.springframework.org/schema/beans/spring-beans.xsd
+  http://www.springframework.org/schema/util
+  http://www.springframework.org/schema/util/spring-util.xsd
+  http://www.springframework.org/schema/security
+  http://www.springframework.org/schema/security/spring-security-3.2.xsd">
+
+  	<bean id="server_setting"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"
+			value="file:E:/Data/Spring Tool Suite - Vietnam Banana/server_setting.properties" />
+	</bean>
+	
+	<!-- <bean id="server_setting"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location"
+			value="file:/opt/apache-tomcat-8.0.42/ict_config/server_setting.properties" />
+	</bean> -->
+	
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+		<property name="initialSize" value="5" />
+		<property name="validationQuery" value="SELECT 1;" />
+		<property name="cacheState" value="false" />
+		<property name="defaultAutoCommit" value="false" />
+	</bean>
+	
+	<!-- 認証とアクセス制御の設定です -->
+	<sec:http auto-config="true" access-denied-page="/accessdenied">
+		<sec:intercept-url pattern="/autherror*" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<sec:intercept-url pattern="/login/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<sec:intercept-url pattern="/error/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0001/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0002/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0003/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0005/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0007/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0009/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0013/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0023/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0017/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0031/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0035/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0037/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0045/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0047/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0049/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0061/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/0087/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0075/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0089/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0090/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0091/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0092/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+		<sec:intercept-url pattern="/0095/**" access="ROLE_ADMIN,ROLE_USER,IS_AUTHENTICATED_FULLY"/>
+	    <sec:intercept-url pattern="/**" access="IS_AUTHENTICATED_ANONYMOUSLY"/>
+		<!-- 認証の設定 -->
+		<sec:form-login login-page="/" username-parameter="j_username"
+			password-parameter="j_password" login-processing-url="/j_spring_security_check"
+			default-target-url="/0001/" authentication-failure-url="/autherror" 
+			authentication-success-handler-ref="mySuccessHandler" />
+		<sec:logout logout-url="/login" logout-success-url="/"
+			invalidate-session="true" />
+		<sec:anonymous granted-authority="ROLE_ANONYMOUS" />
+	</sec:http>
+	<bean id="mySuccessHandler" class="vn.bananavietnam.ict.common.auth.MySuccessHandler"></bean>
+	<!-- JdbcDaoImplを拡張したUserDetailsServiceの実装クラスの設定 -->
+	<bean id="myUserDetailsService" class="vn.bananavietnam.ict.common.auth.MyUserDetailsService">
+		<property name="dataSource" ref="dataSource" />
+		<!-- use ID and Password to log in -->
+		<property name="usersByUsernameQuery" value="select users_authorization.usersId as id,
+															users_authorization.usersName as username,
+													        users_authorization.usersPassword as password,
+													        users_authorization.usersFullName as userfullname,
+													        1 as enabled,
+													        CASE
+													        	WHEN users_authorization.authorizationTypeId IS NULL THEN '0'
+            													ELSE users_authorization.authorizationTypeId
+													        END as roleid,
+													        CASE
+																WHEN access.SCREEN_DISPLAY_ENABLE_FLAG IS NULL THEN '0'
+																ELSE access.SCREEN_DISPLAY_ENABLE_FLAG
+															END as roledisplay,
+													        CASE
+																WHEN access.ADDABLE_FLAG IS NULL THEN '0'
+																ELSE access.ADDABLE_FLAG
+															END as roleadd,
+													        CASE
+																WHEN access.UPDATABLE_FLAG IS NULL THEN '0'
+																ELSE access.UPDATABLE_FLAG
+															END as roleupdate,
+													        CASE
+																WHEN access.DELETABLE_FLAG IS NULL THEN '0'
+																ELSE access.DELETABLE_FLAG
+															END as roledelete,
+													        CASE
+																WHEN access.REFERENCE_FLAG IS NULL THEN '0'
+																ELSE access.REFERENCE_FLAG
+															END as rolereference, 
+													        access.SCREEN_ID as screenid
+													from (select users_manager.usersId,
+																users_manager.usersName,
+																users_manager.usersPassword,
+																users_manager.usersFullName,
+																users_manager.authorizationTypeId,
+																authorization.AUTHORIZATION_TYPE_NAME authorizationTypeName,
+																authorization.ACCESS_AUTHORITY_ID accessAuthorityId
+														from (select users.USERS_ID usersId,
+																	users.USERS_ID usersName,
+																	users.PASSWORD usersPassword,
+																	users.USERS_NAME usersFullName,
+																	manager.AUTHORIZATION_TYPE_ID authorizationTypeId
+															from IVB_M_USERS users
+															left join IVB_M_MANAGER manager
+																on users.USERS_ID = manager.USERS_ID
+																and manager.DELETE_FLAG = '0'
+															where users.USERS_ID = ?
+																and users.DELETE_FLAG = '0'
+															) users_manager
+														left join IVB_M_AUTHORIZATION authorization
+															on users_manager.authorizationTypeId = authorization.AUTHORIZATION_TYPE_ID
+														    and authorization.DELETE_FLAG = '0'
+													    ) users_authorization
+													left join IVB_M_ACCESS_AUTHORIZATION access
+														on users_authorization.accessAuthorityId = access.ACCESS_AUTHORITY_ID
+													    and access.DELETE_FLAG = '0'" />
+		<property name="authoritiesByUsernameQuery" value="select distinct users.USERS_ID,
+																	CASE
+																		WHEN manager.AUTHORIZATION_TYPE_ID IS NULL THEN '0'
+																		ELSE manager.AUTHORIZATION_TYPE_ID
+																	END as AUTHORIZATION_TYPE_ID
+														from IVB_M_USERS users
+														left join IVB_M_MANAGER manager
+															on users.USERS_ID = manager.USERS_ID
+															and manager.DELETE_FLAG = '0'
+														where users.USERS_ID = ?
+															and users.DELETE_FLAG = '0'" />
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+    	<property name="dataSource" ref="dataSource"/>
+  	</bean>
+
+	<bean id="xml_path"
+		class="vn.bananavietnam.ict.common.component.FilePath">
+		<property name="configPath" value="E:/Data/Spring Tool Suite - Vietnam Banana/config.xml" />
+	</bean>
+	
+	<bean id="last_shipping_number_path"
+		class="vn.bananavietnam.ict.common.component.FilePath">
+		<property name="lastShippingNumberPath" value="E:/Data/Spring Tool Suite - Vietnam Banana/last_shipping_number" />
+	</bean>
+	
+	<!-- <bean id="xml_path"
+		class="vn.bananavietnam.ict.common.component.FilePath">
+		<property name="configPath" value="/opt/apache-tomcat-8.0.42/ict_config/config.xml" />
+	</bean>
+	
+	<bean id="last_shipping_number_path"
+		class="vn.bananavietnam.ict.common.component.FilePath">
+		<property name="lastShippingNumberPath" value="/opt/apache-tomcat-8.0.42/ict_config/last_shipping_number" />
+	</bean> -->
+
+	<!-- 認証手形発行所の設定。ログインID/PWの情報をメモリから取得する方法です。SQL文を指定してDBから取得する方法もあります。 -->
+	<sec:authentication-manager>
+		<sec:authentication-provider user-service-ref="myUserDetailsService">
+			<sec:password-encoder hash="md5" />
+		</sec:authentication-provider>
+	</sec:authentication-manager>
+</beans>

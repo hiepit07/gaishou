@@ -1,0 +1,10 @@
+/* User info popup styles */
+.userinfo-popup {
+	width: 700px;
+	height: 300px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}

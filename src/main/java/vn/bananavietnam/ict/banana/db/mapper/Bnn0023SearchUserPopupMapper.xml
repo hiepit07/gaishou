@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0023SearchUserPopupMapper">
+	<select id="searchData" flushCache="true" parameterType="vn.bananavietnam.ict.banana.component.Bnn0023SearchUserPopupDataObject" resultType="vn.bananavietnam.ict.banana.component.Bnn0023SearchUserPopupDataObject">
+		SELECT DISTINCT	M.USERS_ID		userId,
+						U.USERS_NAME	userName
+		FROM		IVB_M_MANAGER	M
+		LEFT JOIN	IVB_M_USERS		U	ON	M.USERS_ID = U.USERS_ID
+		WHERE 1 = 1
+		<if test="userId != ''">
+			AND M.USERS_ID				LIKE	#{userId}
+		</if>
+		<if test="userName != ''">
+			AND	U.USERS_NAME			LIKE	#{userName}
+		</if>
+			AND	M.FARM_ID				= 		#{farmId}
+			AND	M.AUTHORIZATION_TYPE_ID	=		#{authorizationTypeId}
+			AND	U.DELETE_FLAG 			= 		0
+		ORDER BY U.USERS_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="vn.bananavietnam.ict.banana.component.Bnn0023SearchUserPopupDataObject" resultType="java.lang.String">
+		SELECT 	COUNT(*) FROM (
+				SELECT DISTINCT	M.USERS_ID		userId,
+								U.USERS_NAME	userName
+				FROM		IVB_M_MANAGER	M
+				LEFT JOIN	IVB_M_USERS		U	ON	M.USERS_ID = U.USERS_ID
+				WHERE 1 = 1
+				<if test="userId != ''">
+					AND M.USERS_ID				LIKE	#{userId}
+				</if>
+				<if test="userName != ''">
+					AND	U.USERS_NAME			LIKE	#{userName}
+				</if>
+					AND	M.FARM_ID				= 		#{farmId}
+					AND	M.AUTHORIZATION_TYPE_ID	=		#{authorizationTypeId}
+					AND	U.DELETE_FLAG 			= 		0) as USERMANAGER
+	</select>
+</mapper>

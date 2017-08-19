@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0007SearchAreaMapper">
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0007SearchAreaResult">
+		SELECT 	DISTINCT(A.AREA_ID) areaId,
+				A.FARM_ID farmId,
+				F.FARM_NAME farmName,
+				A.AREA_NAME areaName,
+				A.AREA_MANAGER areaManager,
+                (SELECT U.USERS_NAME FROM IVB_M_USERS U WHERE U.USERS_ID = A.AREA_MANAGER) usersName,
+                A.KIND_ID kindId,
+                K.KIND_NAME kindName,
+                A.SUGAR_CONTENT sugarContent,
+                A.TEXTURE texture,
+                A.PROSPECTIVE_HARVEST_AMOUNT prospectiveHarvestAmount,
+                A.ESTIMATED_DAYS_FLOWERING estimatedDaysFlowering,
+                A.ESTIMATED_DAYS_BAGGING estimatedDaysBagging,
+                A.ESTIMATED_DAYS_HARVEST estimatedDaysHarvest,
+				A.NOTE note,
+				A.DELETE_FLAG deleteFlag,
+				A.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_AREA A 	
+		LEFT JOIN IVB_M_FARM F 	on A.FARM_ID = F.FARM_ID
+		LEFT JOIN IVB_M_KIND K 	on A.KIND_ID = K.KIND_ID
+		WHERE 1 = 1
+		<if test="areaId != '-2'">
+			AND A.AREA_ID = #{areaId}
+		</if>
+		<if test="farmId != '-2'">
+			AND A.FARM_ID = #{farmId}
+		</if>
+		AND A.DELETE_FLAG = '0'
+		AND F.DELETE_FLAG = '0'
+		AND K.DELETE_FLAG = '0'
+		ORDER BY A.AREA_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+
+	<select id="searchSingleData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0007SearchAreaFormResult">
+		SELECT 	DISTINCT(A.AREA_ID) areaId,
+				F.FARM_ID farmId, 
+				F.FARM_NAME farmName,
+                A.AREA_NAME areaName,
+                A.AREA_MANAGER usersId,
+                K.KIND_NAME kindName,
+                (SELECT COUNT(B.BLOCK_ID) FROM IVB_M_BLOCK B WHERE B.FARM_ID = #{farmId} AND B.AREA_ID = #{areaId}) numberOfBlock,
+                (SELECT U.USERS_NAME FROM IVB_M_USERS U WHERE U.USERS_ID = A.AREA_MANAGER) usersName,
+                A.KIND_ID kindId,
+                A.SUGAR_CONTENT sugarContent,
+                A.TEXTURE texture,
+                A.PROSPECTIVE_HARVEST_AMOUNT prospectiveHarvestAmount,
+                A.ESTIMATED_DAYS_FLOWERING estimatedDaysFlowering,
+                A.ESTIMATED_DAYS_BAGGING estimatedDaysBagging,
+                A.ESTIMATED_DAYS_HARVEST estimatedDaysHarvest,
+                A.DELETE_FLAG deleteFlag,
+				A.NOTE note,
+				A.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_AREA A 	
+		LEFT JOIN IVB_M_FARM F 	on A.FARM_ID = F.FARM_ID
+		LEFT JOIN IVB_M_KIND K 	on A.KIND_ID = K.KIND_ID
+		WHERE 1 = 1
+		AND A.FARM_ID = #{farmId}
+		AND A.AREA_ID = #{areaId}
+		AND A.DELETE_FLAG = '0'
+		AND F.DELETE_FLAG = '0'
+		AND K.DELETE_FLAG = '0'
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(DISTINCT(A.AREA_ID))
+		FROM IVB_M_AREA A 	
+		LEFT JOIN IVB_M_FARM F 	on A.FARM_ID = F.FARM_ID
+		LEFT JOIN IVB_M_KIND K 	on A.KIND_ID = K.KIND_ID
+		WHERE 1 = 1
+		<if test="areaId != '-2'">
+			AND A.AREA_ID = #{areaId}
+		</if>
+		<if test="farmId != '-2'">
+			AND A.FARM_ID = #{farmId}
+		</if>
+		AND A.DELETE_FLAG = '0'
+		AND F.DELETE_FLAG = '0'
+		AND K.DELETE_FLAG = '0'
+		ORDER BY A.AREA_ID
+	</select>
+
+	<select id="insertData" flushCache="true" parameterType="map" resultType="map" statementType="CALLABLE">
+		{call CREATE_BLOCK_FROM_NUMBER_OF_BLOCK(
+			#{farmId, jdbcType=VARCHAR, mode=IN},
+			#{areaId, jdbcType=VARCHAR, mode=IN},
+			#{usersId, jdbcType=VARCHAR, mode=IN},
+			#{numberOfBlock, jdbcType=NUMERIC, mode=IN},
+			#{cultivationStartDate, jdbcType=DATE, mode=IN},
+			#{result, jdbcType=VARCHAR, javaType=String, mode=OUT}
+		)}
+	</select>
+
+	<select id="deleteData" flushCache="true" parameterType="map" resultType="map" statementType="CALLABLE">
+		{call DELETE_DATA_BLOCK_FROM_AREA(
+			#{farmId, jdbcType=VARCHAR, mode=IN},
+			#{areaId, jdbcType=VARCHAR, mode=IN},
+			#{lastUpdateDate, jdbcType=VARCHAR, mode=IN},
+			#{result, jdbcType=VARCHAR, javaType=String, mode=OUT}
+		)}
+	</select>
+	
+	<select id="searchAreaNameByFarmId" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0007SearchAreaResult">
+		SELECT 	A.AREA_NAME areaName
+		FROM IVB_M_AREA A 
+		WHERE 	A.FARM_ID = #{farmId}
+				<if test="areaId != ''">
+					AND A.AREA_ID != #{areaId}
+				</if>
+				AND A.DELETE_FLAG = '0'
+		ORDER BY A.AREA_ID
+	</select>
+	<select id="getLastAreaId" flushCache="true" resultType="java.lang.String">
+		SELECT AREA_ID areaId
+		FROM IVB_M_AREA
+		WHERE FARM_ID = #{farmId}
+			AND AREA_ID != #{areaDefault}
+		ORDER BY AREA_ID DESC
+		LIMIT 0,1
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_AREA
+		SET 
+			  <if test="farmId != null" >
+		        FARM_ID = #{farmId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="areaId != null" >
+		        AREA_ID = #{areaId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="areaName != null" >
+		        AREA_NAME = #{areaName,jdbcType=VARCHAR},
+		      </if>
+		      <if test="areaManager != null" >
+		        AREA_MANAGER = #{areaManager,jdbcType=VARCHAR},
+		      </if>
+		      <if test="kindId != null" >
+		        KIND_ID = #{kindId,jdbcType=VARCHAR},
+		      </if>
+		      <if test="sugarContent != null" >
+		        SUGAR_CONTENT = #{sugarContent,jdbcType=VARCHAR},
+		      </if>
+		      <if test="texture != null" >
+		        TEXTURE = #{texture,jdbcType=VARCHAR},
+		      </if>
+		      <if test="prospectiveHarvestAmount != null" >
+		        PROSPECTIVE_HARVEST_AMOUNT = #{prospectiveHarvestAmount,jdbcType=DOUBLE},
+		      </if>
+		      <if test="estimatedDaysFlowering != null" >
+		        ESTIMATED_DAYS_FLOWERING = #{estimatedDaysFlowering,jdbcType=INTEGER},
+		      </if>
+		      <if test="estimatedDaysBagging != null" >
+		        ESTIMATED_DAYS_BAGGING = #{estimatedDaysBagging,jdbcType=INTEGER},
+		      </if>
+		      <if test="estimatedDaysHarvest != null" >
+		        ESTIMATED_DAYS_HARVEST = #{estimatedDaysHarvest,jdbcType=INTEGER},
+		      </if>
+		      <if test="note != null" >
+		        NOTE = #{note,jdbcType=VARCHAR},
+		      </if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW()
+    	WHERE FARM_ID = #{farmId} AND AREA_ID = #{areaId} AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+</mapper>

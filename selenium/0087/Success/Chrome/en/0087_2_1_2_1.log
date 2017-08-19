@@ -1,0 +1,57 @@
+06-05-2017 15:48:55.484,DEBUG,Request [/ict/0087/searchData] is not a multipart request
+06-05-2017 15:48:55.484,DEBUG,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0087/searchData]
+06-05-2017 15:48:55.484,DEBUG,Looking up handler method for path /0087/searchData
+06-05-2017 15:48:55.484,DEBUG,Returning handler method [public java.util.List<vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult> vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.searchData(vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions)]
+06-05-2017 15:48:55.484,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:48:55.484,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:55.484,DEBUG,Skip CORS processing: request is from same origin
+06-05-2017 15:48:55.484,DEBUG,Read [class vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:55.485,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:48:55.511,DEBUG,Written [[]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:55.511,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:55.511,DEBUG,Successfully completed request
+06-05-2017 15:48:55.668,DEBUG,Request [/ict/resources/img/ic_last_dis.png] is not a multipart request
+06-05-2017 15:48:55.668,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_last_dis.png]
+06-05-2017 15:48:55.668,DEBUG,Looking up handler method for path /resources/img/ic_last_dis.png
+06-05-2017 15:48:55.669,DEBUG,Request [/ict/resources/img/ic_next_dis.png] is not a multipart request
+06-05-2017 15:48:55.669,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_next_dis.png]
+06-05-2017 15:48:55.669,DEBUG,Looking up handler method for path /resources/img/ic_next_dis.png
+06-05-2017 15:48:55.670,DEBUG,Did not find handler method for [/resources/img/ic_last_dis.png]
+06-05-2017 15:48:55.670,DEBUG,Matching patterns for request [/resources/img/ic_last_dis.png] are [/resources/**]
+06-05-2017 15:48:55.670,DEBUG,URI Template variables for request [/resources/img/ic_last_dis.png] are {}
+06-05-2017 15:48:55.670,DEBUG,Mapping [/resources/img/ic_last_dis.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:55.670,DEBUG,Last-Modified value for [/ict/resources/img/ic_last_dis.png] is: -1
+06-05-2017 15:48:55.670,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:55.670,DEBUG,Did not find handler method for [/resources/img/ic_next_dis.png]
+06-05-2017 15:48:55.670,DEBUG,Matching patterns for request [/resources/img/ic_next_dis.png] are [/resources/**]
+06-05-2017 15:48:55.670,DEBUG,URI Template variables for request [/resources/img/ic_next_dis.png] are {}
+06-05-2017 15:48:55.670,DEBUG,Mapping [/resources/img/ic_next_dis.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:55.670,DEBUG,Last-Modified value for [/ict/resources/img/ic_next_dis.png] is: -1
+06-05-2017 15:48:55.670,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:55.671,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:55.671,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:55.671,DEBUG,Successfully completed request
+06-05-2017 15:48:55.671,DEBUG,Successfully completed request
+06-05-2017 15:48:55.672,DEBUG,Request [/ict/resources/img/icon_warning.png] is not a multipart request
+06-05-2017 15:48:55.672,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/icon_warning.png]
+06-05-2017 15:48:55.672,DEBUG,Looking up handler method for path /resources/img/icon_warning.png
+06-05-2017 15:48:55.673,DEBUG,Did not find handler method for [/resources/img/icon_warning.png]
+06-05-2017 15:48:55.673,DEBUG,Matching patterns for request [/resources/img/icon_warning.png] are [/resources/**]
+06-05-2017 15:48:55.673,DEBUG,URI Template variables for request [/resources/img/icon_warning.png] are {}
+06-05-2017 15:48:55.673,DEBUG,Mapping [/resources/img/icon_warning.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:55.673,DEBUG,Last-Modified value for [/ict/resources/img/icon_warning.png] is: -1
+06-05-2017 15:48:55.673,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:55.674,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:55.674,DEBUG,Successfully completed request
+06-05-2017 15:48:56.087,DEBUG,Request [/ict/0087/searchData] is not a multipart request
+06-05-2017 15:48:56.087,DEBUG,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0087/searchData]
+06-05-2017 15:48:56.087,DEBUG,Looking up handler method for path /0087/searchData
+06-05-2017 15:48:56.088,DEBUG,Returning handler method [public java.util.List<vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult> vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.searchData(vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions)]
+06-05-2017 15:48:56.088,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:48:56.088,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:56.088,DEBUG,Skip CORS processing: request is from same origin
+06-05-2017 15:48:56.088,DEBUG,Read [class vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:56.089,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:48:56.118,DEBUG,Written [[vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@3b47fa, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@6d8450, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@f58581, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@497307, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@ffb23, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@f2a376, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@77f224, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@13766a6, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@64f80, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@150b5e5, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@7f96f9, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@21ccc6, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@69fc4d, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@ac9d38, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@ee0fca, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@8da1ed, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@151afa5, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@152acaa, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@11a7095, vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@793312]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:56.118,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:56.118,DEBUG,Successfully completed request

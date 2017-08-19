@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0061TraceabilityMasterMapper">
+	<select id="getLineIdList" flushCache="true" parameterType="vn.bananavietnam.ict.common.db.model.IvbTProduct" resultType="java.lang.String">
+		SELECT DISTINCT p.LINE_ID lineId
+		FROM IVB_T_PRODUCT p
+		WHERE p.FARM_ID = #{farmId}
+		AND p.AREA_ID = #{areaId}
+		<if test="blockId != '-2'">
+			AND p.BLOCK_ID = #{blockId}
+		</if>
+		ORDER BY p.LINE_ID
+	</select>
+	
+	<select id="getColumnIdList" flushCache="true" parameterType="vn.bananavietnam.ict.common.db.model.IvbTProduct" resultType="java.lang.String">
+		SELECT DISTINCT p.COLUMN_ID columnId
+		FROM IVB_T_PRODUCT p
+		WHERE p.FARM_ID = #{farmId}
+		AND p.AREA_ID = #{areaId}
+		<if test="blockId != '-2'">
+			AND p.BLOCK_ID = #{blockId}
+		</if>
+		ORDER BY p.COLUMN_ID
+	</select>
+	
+	<select id="searchData" flushCache="true" parameterType="vn.bananavietnam.ict.banana.component.Bnn0061TraceabilityMasterDataConditions" resultType="vn.bananavietnam.ict.banana.component.Bnn0061TraceabilityMasterDataObject">
+		SELECT 	TCR.FARM_ID					farmId,
+				TCR.FARM_NAME				farmName,
+				TCR.AREA_ID					areaId,
+				TCR.AREA_NAME				areaName,
+				TCR.BLOCK_ID				blockId,
+				TCR.BLOCK_NAME				blockName,
+				TCR.KIND_ID					kindId,
+				TCR.KIND_NAME				kindName,
+				TCR.LINE_ID					lineId,
+				TCR.COLUMN_ID				columnId,
+				TCR.PREVIOUS_ROUND			previousRound,
+				TCR.WORKING_DATE			workingDate,
+				TCR.CULTIVATION_START_DATE 	cultivationStartDate,
+				TCR.PLANTING_DATE			plantingDate,
+				TCR.FLOWERING_DATE			floweringDate,
+				TCR.BAG_CLOSING_DATE		bagClosingDate,
+				TCR.HARVEST_DATE			harvestDate,
+				TCR.SHIPPING_DATE			shippingDate,
+				TCR.PROCESS_ID				processId,
+				TCR.PROCESS_NAME			processName,
+				TCR.TASK_ID					taskId,
+				TCR.TASK_NAME				taskName,
+				TCR.STATUS_ID				statusId,
+				TCR.STATUS_NAME				statusName,
+				TCR.WORKING_DETAILS			workingDetails,
+				TCR.TASK_NOTE				taskNote,
+				TCR.CULTIVATION_NOTE		cultivationNote,
+				TCR.BLOCK_WORK_FLAG			blockWorkFlag
+		FROM
+			<include refid="mainSearchSelect"></include>
+		ORDER BY	TCR.WORKING_DATE DESC,
+					TCR.FARM_NAME,
+					TCR.AREA_NAME,
+					TCR.BLOCK_NAME,
+					TCR.COLUMN_ID,
+					TCR.LINE_ID,
+					TCR.PROCESS_ORDER,
+					TCR.TASK_ORDER
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	
+	<select id="getSingleData" flushCache="true" parameterType="vn.bananavietnam.ict.banana.component.Bnn0061TraceabilityMasterDataConditions" resultType="vn.bananavietnam.ict.banana.component.Bnn0061TraceabilityMasterDataObject">
+			SELECT 	CR.FARM_ID			farmId,
+					F.FARM_NAME			farmName,
+					CR.AREA_ID			areaId,
+					A.AREA_NAME			areaName,
+			        CR.BLOCK_ID			blockId,
+					B.BLOCK_NAME		blockName,
+			        CK.KIND_ID			kindId,
+			        CK.KIND_NAME		kindName,
+					CR.LINE_ID			lineId,
+					CR.COLUMN_ID		columnId,
+					CR.WORKING_DATE		workingDate,
+				    CASE T.CHANGE_POINT_CODE
+                    WHEN 1 THEN
+                        CR.WORKING_DATE
+                    END as cultivationStartDate,
+                    CASE T.CHANGE_POINT_CODE
+                    WHEN 2 THEN
+                        CR.WORKING_DATE
+                    END as plantingDate,
+                    CASE T.CHANGE_POINT_CODE
+                    WHEN 3 THEN
+                        CR.WORKING_DATE
+                    END as floweringDate,
+                    CASE T.CHANGE_POINT_CODE
+                    WHEN 4 THEN
+                        CR.WORKING_DATE
+                    END as bagClosingDate,
+                    CASE T.CHANGE_POINT_CODE
+                    WHEN 5 THEN
+                        CR.WORKING_DATE
+                    END as harvestDate,
+                    <!-- no shipping date for block -->
+                    null as shippingDate,
+			        PC.PROCESS_ID		processId,
+					PC.PROCESS_NAME		processName,
+			        CR.TASK_ID			taskId,
+					T.TASK_NAME			taskName,
+			        CR.STATUS_ID		statusId,
+					S.STATUS_NAME		statusName,
+			        T.WORKING_DETAILS	workingDetails,
+			        T.NOTE				taskNote,
+					CR.NOTE				cultivationNote
+			FROM IVB_T_CULTIVATION_RESULT 	CR
+			LEFT JOIN
+			(SELECT	C.FARM_ID,
+					C.KIND_ID,
+					K.KIND_NAME,
+					C.PROCESS_ID,
+					C.TASK_ID
+			FROM IVB_M_CULTIVATION			C
+			LEFT JOIN IVB_M_KIND			K	ON C.KIND_ID			= K.KIND_ID) CK 
+												ON 	CR.FARM_ID			= CK.FARM_ID
+												AND CR.PROCESS_ID		= CK.PROCESS_ID
+												AND CR.TASK_ID			= CK.TASK_ID
+			LEFT JOIN IVB_M_FARM 			F 	ON 	CR.FARM_ID 			= F.FARM_ID
+			LEFT JOIN IVB_M_AREA 			A 	ON 	CR.FARM_ID			= A.FARM_ID
+												AND	CR.AREA_ID			= A.AREA_ID
+			LEFT JOIN IVB_M_BLOCK 			B 	ON 	CR.FARM_ID 			= B.FARM_ID
+												AND CR.AREA_ID 			= B.AREA_ID
+												AND CR.BLOCK_ID 		= B.BLOCK_ID
+			LEFT JOIN IVB_T_PRODUCT 		PD 	ON 	CR.FARM_ID 			= PD.FARM_ID
+												AND CR.AREA_ID 			= PD.AREA_ID
+												AND CR.BLOCK_ID 		= PD.BLOCK_ID
+												AND CR.LINE_ID 			= PD.LINE_ID
+												AND CR.COLUMN_ID 		= PD.COLUMN_ID
+												AND	CR.PREVIOUS_ROUND 	= PD.PREVIOUS_ROUND
+			LEFT JOIN IVB_M_PROCESS 		PC 	ON 	CR.PROCESS_ID 		= PC.PROCESS_ID
+			LEFT JOIN IVB_M_TASK 			T 	ON 	CR.TASK_ID 			= T.TASK_ID
+			LEFT JOIN IVB_M_STATUS 			S 	ON 	CR.FARM_ID 			= S.FARM_ID
+												AND CR.STATUS_ID 		= S.STATUS_ID
+			WHERE CK.KIND_ID = A.KIND_ID
+			AND CR.FARM_ID = #{farmId}
+			AND CR.AREA_ID = #{areaId}
+			AND CR.BLOCK_ID = #{blockId}
+			AND CR.LINE_ID = #{lineId}
+			AND CR.COLUMN_ID = #{columnId}
+			AND CR.PROCESS_ID = #{processId}
+			AND CR.TASK_ID = #{taskId}
+			AND CR.STATUS_ID = #{statusId}
+			AND	CR.PREVIOUS_ROUND = #{previousRoundCbb}
+			AND CR.WORKING_DATE BETWEEN #{workingDateStart} AND #{workingDateEnd}
+	</select>
+	
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="vn.bananavietnam.ict.banana.component.Bnn0061TraceabilityMasterDataConditions" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM
+			<include refid="mainSearchSelect"></include>
+	</select>
+	
+	<select id="getTaskList" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMTask">
+		SELECT DISTINCT C.TASK_ID taskId, T.TASK_NAME taskName
+		FROM IVB_M_CULTIVATION C
+		LEFT JOIN IVB_M_PROCESS P
+			ON C.PROCESS_ID = P.PROCESS_ID
+		LEFT JOIN IVB_M_TASK T
+			ON C.TASK_ID = T.TASK_ID
+		WHERE C.DELETE_FLAG = false
+		    AND P.DELETE_FLAG = false
+		    AND T.DELETE_FLAG = false
+		    AND C.FARM_ID = #{farmId}
+		    <if test="processId != '-2'">
+		    AND C.PROCESS_ID = #{processId}
+		    </if>
+		ORDER BY T.TASK_NAME
+	</select>
+	
+	<select id="getStatusList" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMStatus">
+		SELECT DISTINCT S.STATUS_ID statusId, S.STATUS_NAME statusName, S.INFOR_ID inforId
+		FROM IVB_M_STATUS S 
+		LEFT JOIN IVB_M_FARM F 
+			ON S.FARM_ID = F.FARM_ID
+		WHERE S.DELETE_FLAG = false
+		    AND F.DELETE_FLAG = false
+		    AND S.FARM_ID = #{farmId}
+		ORDER BY S.STATUS_NAME
+	</select>
+	
+	<select id="getProcessList" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMProcess">
+		SELECT DISTINCT C.PROCESS_ID processId, P.PROCESS_NAME processName
+		FROM IVB_M_CULTIVATION C
+		LEFT JOIN IVB_M_PROCESS P
+			ON C.PROCESS_ID = P.PROCESS_ID
+		WHERE C.DELETE_FLAG = false
+		    AND P.DELETE_FLAG = false
+		    AND C.FARM_ID = #{farmId}
+		ORDER BY P.PROCESS_NAME
+	</select>
+	
+	<sql id="mainSearchSelect">
+        (SELECT PRODUCT9999.FARM_ID,
+                FARM_NAME,
+                PRODUCT9999.AREA_ID,
+                AREA_NAME,
+                PRODUCT9999.BLOCK_ID,
+                BLOCK_NAME,
+                KIND_ID,
+                KIND_NAME,
+                LINE_ID,
+                COLUMN_ID,
+                PREVIOUS_ROUND,
+                WORKING_DATE,
+                CULTIVATION_START_DATE,
+                PLANTING_DATE,
+                FLOWERING_DATE,
+                BAG_CLOSING_DATE,
+                HARVEST_DATE,
+                SHIPPING_DATE,
+                PROCESS_ID,
+                PROCESS_NAME,
+                TASK_ID,
+                TASK_NAME,
+                STATUS_ID,
+                STATUS_NAME,
+                WORKING_DETAILS,
+                TASK_NOTE,
+                CULTIVATION_NOTE,
+                BLOCK_WORK_FLAG,
+                PRODUCT9999.DELETE_FLAG,
+                TASK_ORDER,
+                PROCESS_ORDER
+            FROM
+                (SELECT CR.FARM_ID,
+                        F.FARM_NAME,
+                        CR.AREA_ID,
+                        A.AREA_NAME,
+                        CR.BLOCK_ID,
+                        B.BLOCK_NAME,
+						CR.LINE_ID,
+						CR.COLUMN_ID,
+                        CK.KIND_ID,
+                        CK.KIND_NAME,
+                        CR.PREVIOUS_ROUND,
+                        CR.WORKING_DATE,
+                        CASE T.CHANGE_POINT_CODE
+                        WHEN 1 THEN
+                            CR.WORKING_DATE
+                        END as CULTIVATION_START_DATE,
+                        CASE T.CHANGE_POINT_CODE
+                        WHEN 2 THEN
+                            CR.WORKING_DATE
+                        END as PLANTING_DATE,
+                        CASE T.CHANGE_POINT_CODE
+                        WHEN 3 THEN
+                            CR.WORKING_DATE
+                        END as FLOWERING_DATE,
+                        CASE T.CHANGE_POINT_CODE
+                        WHEN 4 THEN
+                            CR.WORKING_DATE
+                        END as BAG_CLOSING_DATE,
+                        CASE T.CHANGE_POINT_CODE
+                        WHEN 5 THEN
+                            CR.WORKING_DATE
+                        END as HARVEST_DATE,
+                        <!-- no shipping date for block -->
+                        null as SHIPPING_DATE,
+                        PC.PROCESS_ID,
+                        PC.PROCESS_NAME,
+                        CR.TASK_ID,
+                        T.TASK_NAME,
+                        CR.STATUS_ID,
+                        S.STATUS_NAME,
+                        T.WORKING_DETAILS,
+                        T.NOTE 	TASK_NOTE,
+                        CR.NOTE CULTIVATION_NOTE,
+                        CR.BLOCK_WORK_FLAG,
+                        CR.DELETE_FLAG,
+                        CK.TASK_ORDER,
+                        CK.PROCESS_ORDER
+                FROM 	IVB_T_CULTIVATION_RESULT 	CR
+                LEFT JOIN(
+                    SELECT	C.FARM_ID,
+                            C.KIND_ID,
+                            K.KIND_NAME,
+                            C.BLOCK_WORK_FLAG,
+                            C.PROCESS_ID,
+                            C.TASK_ID,
+                            C.PROCESS_ORDER,
+                            C.TASK_ORDER
+                    FROM 	IVB_M_CULTIVATION		C
+                    LEFT JOIN IVB_M_KIND			K	ON 	C.KIND_ID		= K.KIND_ID) CK
+                                                    ON 	CR.FARM_ID			= CK.FARM_ID
+                                                    AND CR.PROCESS_ID		= CK.PROCESS_ID
+                                                    AND CR.TASK_ID			= CK.TASK_ID
+                LEFT JOIN IVB_M_FARM 			F 	ON 	CR.FARM_ID 			= F.FARM_ID
+                LEFT JOIN IVB_M_AREA 			A 	ON 	CR.FARM_ID			= A.FARM_ID
+                                                    AND	CR.AREA_ID			= A.AREA_ID
+                LEFT JOIN IVB_M_BLOCK 			B 	ON 	CR.FARM_ID 			= B.FARM_ID
+                                                    AND CR.AREA_ID 			= B.AREA_ID
+                                                    AND CR.BLOCK_ID 		= B.BLOCK_ID
+                <!-- remove because using PRODUCTBLOCK -->
+                <!-- LEFT JOIN IVB_T_PRODUCT 		PD 	ON 	CR.FARM_ID 			= PD.FARM_ID
+                                                    AND CR.AREA_ID 			= PD.AREA_ID
+                                                    AND CR.BLOCK_ID 		= PD.BLOCK_ID
+                                                    AND CR.LINE_ID 			= PD.LINE_ID
+                                                    AND CR.COLUMN_ID 		= PD.COLUMN_ID
+                                                    AND	CR.PREVIOUS_ROUND 	= PD.PREVIOUS_ROUND -->
+                LEFT JOIN IVB_M_PROCESS 		PC 	ON 	CR.PROCESS_ID 		= PC.PROCESS_ID
+                LEFT JOIN IVB_M_TASK 			T 	ON 	CR.TASK_ID 			= T.TASK_ID
+                LEFT JOIN IVB_M_STATUS 			S 	ON 	CR.FARM_ID 			= S.FARM_ID
+                                                    AND CR.STATUS_ID 		= S.STATUS_ID
+                WHERE	CK.KIND_ID		= A.KIND_ID
+	                AND		CR.LINE_ID		= '9999'
+	                AND		CR.COLUMN_ID	= '9999'
+	                <if test="blockId != '-2'">
+	                    AND CR.BLOCK_ID = #{blockId}
+	                </if>
+	                <if test="previousRoundCbb != '-2'">
+	                    AND CR.PREVIOUS_ROUND = #{previousRoundCbb}
+	                </if>
+                ORDER BY	CR.WORKING_DATE DESC,
+                            F.FARM_NAME,
+                            A.AREA_NAME,
+                            B.BLOCK_NAME,
+                            CR.COLUMN_ID,
+                            CR.LINE_ID,
+                            CK.PROCESS_ORDER,
+                            CK.TASK_ORDER
+                ) PRODUCT9999
+                JOIN
+                    (
+                        SELECT FARM_ID, AREA_ID, BLOCK_ID, null as _LAST_UPDATE_DATE, 0 as ALL_DELETE
+                        FROM IVB_T_PRODUCT PD
+                        WHERE DELETE_FLAG = 0
+							<include refid="productWhereClause"></include>
+                        GROUP BY FARM_ID, AREA_ID, BLOCK_ID
+                        UNION ALL
+                        <!-- get block with all delete flag -->
+                        SELECT FARM_ID, AREA_ID, BLOCK_ID, MAX(LAST_UPDATE_DATE) as _LAST_UPDATE_DATE, 1 as ALL_DELETE
+                        FROM IVB_T_PRODUCT PD
+                        WHERE 1 = 1
+                        	<include refid="productWhereClause"></include>
+                        GROUP BY FARM_ID, AREA_ID, BLOCK_ID
+                        HAVING SUM(DELETE_FLAG) = COUNT(*)
+                    ) PRODUCTBLOCK
+                    ON PRODUCTBLOCK.FARM_ID = PRODUCT9999.FARM_ID 
+                    AND PRODUCTBLOCK.AREA_ID = PRODUCT9999.AREA_ID 
+                    AND PRODUCTBLOCK.BLOCK_ID = PRODUCT9999.BLOCK_ID
+                    AND (PRODUCTBLOCK.ALL_DELETE = 0 
+                        OR (PRODUCTBLOCK.ALL_DELETE = 1 AND PRODUCTBLOCK._LAST_UPDATE_DATE > PRODUCT9999.WORKING_DATE))
+			UNION
+			(SELECT CR.FARM_ID,
+					F.FARM_NAME,
+					CR.AREA_ID,
+					A.AREA_NAME,
+					CR.BLOCK_ID,
+					B.BLOCK_NAME,
+					CK.KIND_ID,
+					CK.KIND_NAME,
+					CR.LINE_ID,
+					CR.COLUMN_ID,
+					CR.PREVIOUS_ROUND,
+					CR.WORKING_DATE,
+		            PD.CULTIVATION_START_DATE,
+					PD.PLANTING_DATE,
+					PD.FLOWERING_DATE,
+					PD.BAG_CLOSING_DATE,
+					PD.HARVEST_DATE,
+					PD.SHIPPING_DATE,
+					PC.PROCESS_ID,
+					PC.PROCESS_NAME,
+					CR.TASK_ID,
+					T.TASK_NAME,
+					CR.STATUS_ID,
+					S.STATUS_NAME,
+					T.WORKING_DETAILS,
+					T.NOTE 	TASK_NOTE,
+					CR.NOTE CULTIVATION_NOTE,
+					CR.BLOCK_WORK_FLAG,
+					CR.DELETE_FLAG,
+					CK.TASK_ORDER,
+					CK.PROCESS_ORDER
+			FROM IVB_T_CULTIVATION_RESULT 	CR
+			LEFT JOIN(
+			SELECT	C.FARM_ID,
+					C.KIND_ID,
+					K.KIND_NAME,
+					C.BLOCK_WORK_FLAG,
+					C.PROCESS_ID,
+					C.TASK_ID,
+					C.PROCESS_ORDER,
+					C.TASK_ORDER
+			FROM IVB_M_CULTIVATION			C
+			LEFT JOIN IVB_M_KIND			K	ON 	C.KIND_ID			= K.KIND_ID) CK
+												ON 	CR.FARM_ID			= CK.FARM_ID
+												AND CR.PROCESS_ID		= CK.PROCESS_ID
+												AND CR.TASK_ID			= CK.TASK_ID
+			LEFT JOIN IVB_M_FARM 			F 	ON 	CR.FARM_ID 			= F.FARM_ID
+			LEFT JOIN IVB_M_AREA 			A 	ON 	CR.FARM_ID			= A.FARM_ID
+												AND	CR.AREA_ID			= A.AREA_ID
+			LEFT JOIN IVB_M_BLOCK 			B 	ON 	CR.FARM_ID 			= B.FARM_ID
+												AND CR.AREA_ID 			= B.AREA_ID
+												AND CR.BLOCK_ID 		= B.BLOCK_ID
+			<!-- use JOIN to remove lineId 9999 and columnId 9999 -->
+			JOIN IVB_T_PRODUCT 		       PD 	ON 	CR.FARM_ID 			= PD.FARM_ID
+												AND CR.AREA_ID 			= PD.AREA_ID
+												AND CR.BLOCK_ID 		= PD.BLOCK_ID
+												AND CR.LINE_ID 			= PD.LINE_ID
+												AND CR.COLUMN_ID 		= PD.COLUMN_ID
+												AND	CR.PREVIOUS_ROUND 	= PD.PREVIOUS_ROUND
+			LEFT JOIN IVB_M_PROCESS 		PC 	ON 	CR.PROCESS_ID 		= PC.PROCESS_ID
+			LEFT JOIN IVB_M_TASK 			T 	ON 	CR.TASK_ID 			= T.TASK_ID
+			LEFT JOIN IVB_M_STATUS 			S 	ON 	CR.FARM_ID 			= S.FARM_ID
+												AND CR.STATUS_ID 		= S.STATUS_ID
+			WHERE	CK.KIND_ID = A.KIND_ID
+				<include refid="productWhereClause"></include>
+            )
+        ) TCR
+		WHERE TCR.DELETE_FLAG	=	0     
+		<if test="workingDateEnd != ''">
+			AND TCR.WORKING_DATE BETWEEN #{workingDateStart} AND #{workingDateEnd}
+		</if>
+		<if test="workingDateStart != '' and workingDateEnd == ''">
+			AND TCR.WORKING_DATE >= #{workingDateStart}
+		</if>
+		<if test="processId != '-2'">
+			AND TCR.PROCESS_ID = #{processId}
+		</if>
+		<if test="taskId != '-2'">
+			AND TCR.TASK_ID = #{taskId}
+		</if>
+		<if test="statusId != '-2'">
+			AND TCR.STATUS_ID = #{statusId}
+		</if>
+		<if test="blockWorkFlagCbb != '-2'">
+			AND TCR.BLOCK_WORK_FLAG = #{blockWorkFlagCbb}
+		</if>
+		<if test="cultivationNote != ''">
+			AND TCR.CULTIVATION_NOTE LIKE #{cultivationNote}
+		</if>		
+	</sql>
+	
+	<sql id="productWhereClause">
+		AND PD.FARM_ID = #{farmId}
+		AND PD.AREA_ID = #{areaId}
+		<if test="blockId != '-2'">
+		    AND PD.BLOCK_ID = #{blockId}
+		</if>
+		<if test="lineId != '-2'">
+		    AND PD.LINE_ID = #{lineId}
+		</if>
+		<if test="columnId != '-2'">
+		    AND PD.COLUMN_ID = #{columnId}
+		</if>
+		<if test="previousRoundCbb != '-2'">
+		    AND PD.PREVIOUS_ROUND = #{previousRoundCbb}
+		</if>
+		<if test="cultivationStartDateEnd != ''">
+		    AND PD.CULTIVATION_START_DATE BETWEEN #{cultivationStartDateStart} AND #{cultivationStartDateEnd}
+		</if>
+		<if test="cultivationStartDateStart != '' and cultivationStartDateEnd == ''">
+		    AND PD.CULTIVATION_START_DATE >= #{cultivationStartDateStart}
+		</if>
+		<if test="plantingDateEnd != ''">
+		    AND PD.PLANTING_DATE BETWEEN #{plantingDateStart} AND #{plantingDateEnd}
+		</if>
+		<if test="plantingDateStart != '' and plantingDateEnd == ''">
+		    AND PD.PLANTING_DATE >= #{plantingDateStart}
+		</if>
+		<if test="floweringDateEnd != ''">
+		    AND PD.FLOWERING_DATE BETWEEN #{floweringDateStart} AND #{floweringDateEnd}
+		</if>
+		<if test="floweringDateStart != '' and floweringDateEnd == ''">
+		    AND PD.FLOWERING_DATE >= #{floweringDateStart}
+		</if>
+		<if test="bagClosingDateEnd != ''">
+		    AND PD.BAG_CLOSING_DATE BETWEEN #{bagClosingDateStart} AND #{bagClosingDateEnd}
+		</if>
+		<if test="bagClosingDateStart != '' and bagClosingDateEnd == ''">
+		    AND PD.BAG_CLOSING_DATE >= #{bagClosingDateStart}
+		</if>
+		<if test="harvestDateEnd != ''">
+		    AND PD.HARVEST_DATE BETWEEN #{harvestDateStart} AND #{harvestDateEnd}
+		</if>
+		<if test="harvestDateStart != '' and harvestDateEnd == ''">
+		    AND PD.HARVEST_DATE >= #{harvestDateStart}
+		</if>
+		<if test="shippingDateEnd != ''">
+		    AND PD.SHIPPING_DATE BETWEEN #{shippingDateStart} AND #{shippingDateEnd}
+		</if>
+		<if test="shippingDateStart != '' and shippingDateEnd == ''">
+		    AND PD.SHIPPING_DATE >= #{shippingDateStart}
+		</if>
+	</sql>
+</mapper>

@@ -1,0 +1,25 @@
+/* affiliation info popup styles */
+.affiliationDetail {
+	width: 900px;
+	height: 600px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+
+.width30pc {
+	width: 30% !important;
+}
+
+.affiliationDetail #divBodyPopup {
+	height: 350px;
+}
+
+.affiliationDetail #divBodyRightPopup {
+	height: 350px;
+}
+.tbl-line-item {
+	width: 200px;
+}

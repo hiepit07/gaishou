@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0005SearchFarmMapper">
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0005SearchFarmResult">
+		SELECT 	f.FARM_ID farmId,
+				f.FARM_NAME farmName,
+				f.NUMBER_OF_LINES lineOfPlan,
+				f.NUMBER_OF_COLUMNS columnOfPlan,
+				f.OPEN_DATE openDate,
+				f.TIME_FROM timeFrom,
+				f.TIME_TO timeTo,
+				f.FARM_LOCATION address,
+				f.SIZE_OF_PLAN sizeOfPlan,
+				f.CLIMATE climate,
+				f.SOIL soil,
+				f.EMAIL_ADDRESS email,
+				f.PHONE phone,
+				f.FAX fax,
+				f.NOTE note,
+				f.DELETE_FLAG deleteFlag,
+				f.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_FARM f
+		WHERE 1 = 1
+		<if test="farmId != '-2'">
+			AND f.FARM_ID = #{farmId}
+		</if>
+		AND f.DELETE_FLAG = '0'
+		ORDER BY f.FARM_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	<select id="getSingleData" flushCache="true" parameterType="java.lang.String" resultType="vn.bananavietnam.ict.banana.component.Bnn0005SearchFarmDataObject">
+		SELECT 	f.FARM_ID farmId, 
+				f.FARM_NAME farmName,
+				f.NUMBER_OF_LINES numberOfLines,
+				f.NUMBER_OF_COLUMNS numberOfColumns,
+				f.OPEN_DATE dateOpen,
+				f.TIME_FROM fromTime,
+				f.TIME_TO toTime,
+				f.FARM_LOCATION farmLocation,
+				f.SIZE_OF_PLAN sizeOfPlan,
+				f.CLIMATE climate,
+				f.SOIL soil,
+				f.EMAIL_ADDRESS emailAddress,
+				f.PHONE phone,
+				f.FAX fax,
+				f.NOTE note,
+				f.DELETE_FLAG deleteFlag,
+				f.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_FARM f
+		WHERE 1 = 1
+		AND f.FARM_ID = #{farmId}
+		AND f.DELETE_FLAG = '0'
+	</select>
+	<select id="selectDataMananger" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMManager">
+		select 
+			M.FARM_ID farmId,
+			M.AREA_ID areaId,
+		    M.USERS_ID usersId
+		from IVB_M_MANAGER M
+		where M.FARM_ID = #{farmId}
+		AND M.DELETE_FLAG = '0'
+	</select>
+	<select id="getLastFarmId" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT FARM_ID farmId
+		FROM IVB_M_FARM
+		WHERE FARM_ID != #{farmDefault}
+		ORDER BY FARM_ID DESC
+		LIMIT 1
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT 	count(*) 
+		FROM IVB_M_FARM f
+		WHERE 1 = 1
+		<if test="farmId != '-2'">
+			AND f.FARM_ID = #{farmId}
+		</if>
+		AND f.DELETE_FLAG = '0'
+	</select>
+	<select id="deleteData" flushCache="true" parameterType="map" resultType="map" statementType="CALLABLE">
+		{call DELETE_FARM_AREA_BLOCK_PRODUCT(
+			#{farmId, jdbcType=VARCHAR, mode=IN},
+			#{lastUpdateDate, jdbcType=VARCHAR, mode=IN},
+			#{result, jdbcType=VARCHAR, javaType=String, mode=OUT}
+		)}
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_FARM
+		SET 
+			<if test="farmName != null" >
+			  FARM_NAME = #{farmName,jdbcType=VARCHAR},
+			</if>
+			<if test="numberOfLines != null" >
+			  NUMBER_OF_LINES = #{numberOfLines,jdbcType=INTEGER},
+			</if>
+			<if test="numberOfColumns != null" >
+			  NUMBER_OF_COLUMNS = #{numberOfColumns,jdbcType=INTEGER},
+			</if>
+			<if test="openDate != null" >
+			  OPEN_DATE = #{openDate,jdbcType=DATE},
+			</if>
+			<if test="timeFrom != null" >
+			  TIME_FROM = #{timeFrom,jdbcType=DATE},
+			</if>
+			<if test="timeTo != null" >
+			  TIME_TO = #{timeTo,jdbcType=DATE},
+			</if>
+			<if test="farmLocation != null" >
+			  FARM_LOCATION = #{farmLocation,jdbcType=VARCHAR},
+			</if>
+			<if test="sizeOfPlan != null" >
+			  SIZE_OF_PLAN = #{sizeOfPlan,jdbcType=INTEGER},
+			</if>
+			<if test="climate != null" >
+			  CLIMATE = #{climate,jdbcType=VARCHAR},
+			</if>
+			<if test="soil != null" >
+			  SOIL = #{soil,jdbcType=VARCHAR},
+			</if>
+			<if test="emailAddress != null" >
+			  EMAIL_ADDRESS = #{emailAddress,jdbcType=VARCHAR},
+			</if>
+			<if test="phone != null" >
+			  PHONE = #{phone,jdbcType=VARCHAR},
+			</if>
+			<if test="fax != null" >
+			  FAX = #{fax,jdbcType=VARCHAR},
+			</if>
+			<if test="note != null" >
+			  NOTE = #{note,jdbcType=VARCHAR},
+			</if>
+			UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE FARM_ID = #{farmId,jdbcType=VARCHAR} AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+	
+	<select id="getAllFarmName" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.common.db.model.IvbMFarm">
+		SELECT FARM_NAME farmName
+		FROM IVB_M_FARM 
+		WHERE DELETE_FLAG = '0'
+			<if test="farmId != null">
+				AND FARM_ID != #{farmId}
+			</if>
+	</select>
+</mapper>

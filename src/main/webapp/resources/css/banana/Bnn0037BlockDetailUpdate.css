@@ -1,0 +1,41 @@
+/* Operation detail popup styles */
+.operationDetail-popup {
+	width: 700px;
+	height: 500px;
+	position: absolute;
+	z-index: 999;
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+.tbl-left-mini {
+	width: 125px !important;
+}
+
+#divBodyProduct {
+	border-bottom: 1px solid #808080;
+}
+
+#tblProductBody td {
+	height: 25px;
+}
+
+#tblProductBody tr:last-child td {
+	height: auto;
+	vertical-align: inherit;
+	border: 0px solid #ffffff;
+}
+
+#divBody {
+	border-bottom: 1px solid #808080;
+}
+
+#tblBody td {
+	height: 25px;
+}
+
+#tblBody tr:last-child td {
+	height: auto;
+	vertical-align: inherit;
+	border: 0px solid #ffffff;
+}

@@ -1,0 +1,39 @@
+@CHARSET "ISO-8859-1";
+/*	 ========================================================================== */
+/* 0023 STYLES
+  ========================================================================== */
+
+/* User pop up style */
+.userinfo-popup {
+	width: 700px;
+	height: 570px;
+	margin-bottom: 25px;
+	position: absolute;
+	z-index: 999;	
+	display: none;
+	border: 1px solid #000000;
+	background-color: #ffffff;
+}
+
+.width60pc{
+	width: 60% !important;
+}
+
+.height390{
+	height: 390px;
+}
+.userinfo-popup #divBody{
+	height: 250px;
+}
+
+/* Content user pop up width */
+.cont-box-popup {
+	width: 100%;
+	min-width: auto;
+}
+
+/* Hover row */
+.hvRow { background-color: #DDDDDD; }
+
+/* Select row */
+.slRow { background-color: #FFFF80; }

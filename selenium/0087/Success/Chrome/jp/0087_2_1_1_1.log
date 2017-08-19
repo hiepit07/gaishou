@@ -1,0 +1,34 @@
+06-05-2017 15:48:43.222,DEBUG,Request [/ict/0087/searchData] is not a multipart request
+06-05-2017 15:48:43.222,DEBUG,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0087/searchData]
+06-05-2017 15:48:43.222,DEBUG,Looking up handler method for path /0087/searchData
+06-05-2017 15:48:43.223,DEBUG,Returning handler method [public java.util.List<vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult> vn.bananavietnam.ict.banana.controller.Bnn0087SearchAffiliationController.searchData(vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions)]
+06-05-2017 15:48:43.223,DEBUG,Returning cached instance of singleton bean 'bnn0087SearchAffiliationController'
+06-05-2017 15:48:43.223,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:43.223,DEBUG,Skip CORS processing: request is from same origin
+06-05-2017 15:48:43.223,DEBUG,Read [class vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:43.224,DEBUG,Returning cached instance of singleton bean 'transactionManager'
+06-05-2017 15:48:43.250,DEBUG,Written [[vn.bananavietnam.ict.banana.component.Bnn0087SearchAffiliationResult@17f2719]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@4a254b]
+06-05-2017 15:48:43.250,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:43.250,DEBUG,Successfully completed request
+06-05-2017 15:48:43.265,DEBUG,Request [/ict/resources/img/ic_last_dis.png] is not a multipart request
+06-05-2017 15:48:43.265,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_last_dis.png]
+06-05-2017 15:48:43.265,DEBUG,Looking up handler method for path /resources/img/ic_last_dis.png
+06-05-2017 15:48:43.267,DEBUG,Did not find handler method for [/resources/img/ic_last_dis.png]
+06-05-2017 15:48:43.267,DEBUG,Matching patterns for request [/resources/img/ic_last_dis.png] are [/resources/**]
+06-05-2017 15:48:43.267,DEBUG,URI Template variables for request [/resources/img/ic_last_dis.png] are {}
+06-05-2017 15:48:43.267,DEBUG,Mapping [/resources/img/ic_last_dis.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:43.267,DEBUG,Request [/ict/resources/img/ic_next_dis.png] is not a multipart request
+06-05-2017 15:48:43.267,DEBUG,DispatcherServlet with name 'appServlet' processing GET request for [/ict/resources/img/ic_next_dis.png]
+06-05-2017 15:48:43.267,DEBUG,Looking up handler method for path /resources/img/ic_next_dis.png
+06-05-2017 15:48:43.267,DEBUG,Last-Modified value for [/ict/resources/img/ic_last_dis.png] is: -1
+06-05-2017 15:48:43.267,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:43.268,DEBUG,Did not find handler method for [/resources/img/ic_next_dis.png]
+06-05-2017 15:48:43.268,DEBUG,Matching patterns for request [/resources/img/ic_next_dis.png] are [/resources/**]
+06-05-2017 15:48:43.268,DEBUG,URI Template variables for request [/resources/img/ic_next_dis.png] are {}
+06-05-2017 15:48:43.268,DEBUG,Mapping [/resources/img/ic_next_dis.png] to HandlerExecutionChain with handler [ResourceHttpRequestHandler [locations=[ServletContext resource [/resources/]], resolvers=[org.springframework.web.servlet.resource.PathResourceResolver@19f69bd]]] and 1 interceptor
+06-05-2017 15:48:43.269,DEBUG,Last-Modified value for [/ict/resources/img/ic_next_dis.png] is: -1
+06-05-2017 15:48:43.269,DEBUG,Returning cached instance of singleton bean 'xml_path'
+06-05-2017 15:48:43.269,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:43.269,DEBUG,Successfully completed request
+06-05-2017 15:48:43.270,DEBUG,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+06-05-2017 15:48:43.270,DEBUG,Successfully completed request

@@ -1,0 +1,33 @@
+@CHARSET "ISO-8859-1";
+
+/* Hover row */
+.hvRow { background-color: #DDDDDD; }
+
+/* Selected row */
+.slRow { background-color: #FFFF80; }
+
+/* Table Process Unregistered */
+.tbl-process-un td:nth-child(1){
+	text-align: center;
+}
+
+/* Table Process Registration */
+.tbl-process-re td:nth-child(1) {
+	text-align: center;
+}
+
+
+/* Table Process Detail */
+.tbl-process-de td {
+	vertical-align: top;
+}
+.tbl-process-de td:nth-child(1){
+	text-align: center;
+}
+.tbl-process-de td:nth-child(6){
+	text-align: center;
+}
+.tbl-process-de tr:last-child td {
+	height: auto;
+	vertical-align: inherit !important;
+}

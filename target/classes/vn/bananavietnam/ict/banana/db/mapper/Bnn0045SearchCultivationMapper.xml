@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0045SearchCultivationMapper">
+	
+	<select id="getDataKindCbb" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0045SearchCultivationInFormCbbResult">
+		SELECT 	DISTINCT K.KIND_ID kindId,
+					K.KIND_NAME kindName
+			FROM IVB_M_KIND K
+			RIGHT JOIN
+			(SELECT DISTINCT A.KIND_ID
+			FROM IVB_M_AREA A 
+			LEFT JOIN IVB_M_FARM F ON F.FARM_ID = A.FARM_ID
+			WHERE A.DELETE_FLAG = '0' 
+				AND F.DELETE_FLAG = '0'
+				AND A.AREA_ID IN 
+				<foreach close=")" separator="," open="(" collection="listAreaID" index="index" item="item1"> #{item1} </foreach>
+				AND F.FARM_ID IN 
+				<foreach close=")" separator="," open="(" collection="listFarmID" index="index" item="item2"> #{item2} </foreach>
+			) FA ON FA.KIND_ID = K.KIND_ID
+			WHERE K.DELETE_FLAG = '0' 
+            ORDER BY K.KIND_NAME;
+	</select>
+	
+	<select id="getDataProcessCbb" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0045SearchCultivationInFormCbbResult">
+		SELECT 	DISTINCT P.PROCESS_ID processId,
+                P.PROCESS_NAME processName
+		FROM IVB_M_PROCESS P
+		WHERE 1 = 1
+		AND P.DELETE_FLAG = '0'
+		ORDER BY P.PROCESS_NAME
+	</select>
+	
+	<select id="getDataTaskCbb" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0045SearchCultivationInFormCbbResult">
+		SELECT 	DISTINCT T.TASK_ID taskId,
+                T.TASK_NAME taskName
+		FROM IVB_M_TASK T
+		WHERE 1 = 1
+		AND T.DELETE_FLAG = '0'
+		ORDER BY T.TASK_NAME
+	</select>
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0045SearchCultivationResult">
+		SELECT 	C.FARM_ID farmId,
+				F.FARM_NAME farmName,
+				C.KIND_ID kindId,
+                K.KIND_NAME kindName,
+                C.PROCESS_ID processId,
+                P.PROCESS_NAME processName,
+                C.TASK_ID taskId,
+                T.TASK_NAME taskName,
+                T.QUARANTINE_HANDLING_FLAG quarantimehandlingflag,
+                T.WORKING_DETAILS workingdetails,
+                T.NOTE note
+		FROM IVB_M_CULTIVATION C
+        LEFT JOIN IVB_M_FARM F
+			ON F.FARM_ID = C.FARM_ID
+		LEFT JOIN IVB_M_KIND K
+			ON K.KIND_ID = C.KIND_ID
+		LEFT JOIN IVB_M_PROCESS P
+			ON P.PROCESS_ID = C.PROCESS_ID
+		LEFT JOIN IVB_M_TASK T
+			ON T.TASK_ID = C.TASK_ID
+		WHERE 1 = 1
+		AND C.DELETE_FLAG = '0'
+   		AND F.DELETE_FLAG = '0'
+   		AND K.DELETE_FLAG = '0'
+   		AND P.DELETE_FLAG = '0'
+   		AND T.DELETE_FLAG = '0'
+   		AND C.FARM_ID IN
+   		<foreach close=")" separator="," open="(" collection="farmId" index="index" item="item1"> #{item1} </foreach>
+   		AND C.KIND_ID IN
+   		<foreach close=")" separator="," open="(" collection="kindId" index="index" item="item2"> #{item2} </foreach>
+		<if test="processId != '-2'">
+			AND C.PROCESS_ID = #{processId}
+		</if>
+		<if test="taskId != '-2'">
+			AND C.TASK_ID = #{taskId}
+		</if>
+		ORDER BY P.PROCESS_NAME
+				, C.PROCESS_ORDER
+				, T.TASK_NAME
+				, C.TASK_ORDER
+				, F.FARM_NAME
+				, K.KIND_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM IVB_M_CULTIVATION C
+        LEFT JOIN IVB_M_FARM F
+			ON F.FARM_ID = C.FARM_ID
+		LEFT JOIN IVB_M_KIND K
+			ON K.KIND_ID = C.KIND_ID
+		LEFT JOIN IVB_M_PROCESS P
+			ON P.PROCESS_ID = C.PROCESS_ID
+		LEFT JOIN IVB_M_TASK T
+			ON T.TASK_ID = C.TASK_ID
+		WHERE 1 = 1
+		AND C.DELETE_FLAG = '0'
+   		AND F.DELETE_FLAG = '0'
+   		AND K.DELETE_FLAG = '0'
+   		AND P.DELETE_FLAG = '0'
+   		AND T.DELETE_FLAG = '0'
+		AND C.FARM_ID IN
+   		<foreach close=")" separator="," open="(" collection="farmId" index="index" item="item1"> #{item1} </foreach>
+   		AND C.KIND_ID IN
+   		<foreach close=")" separator="," open="(" collection="kindId" index="index" item="item2"> #{item2} </foreach>
+		<if test="processId != '-2'">
+			AND C.PROCESS_ID = #{processId}
+		</if>
+		<if test="taskId != '-2'">
+			AND C.TASK_ID = #{taskId}
+		</if>
+	</select>
+</mapper>

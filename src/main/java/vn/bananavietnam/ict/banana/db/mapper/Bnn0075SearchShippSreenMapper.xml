@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0075SearchShippSreenMapper">
+
+	<select id="searchData" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0075SearchShippingScreenResult">
+		SELECT *
+			FROM(
+				SELECT S.FARM_ID farmId
+						,S.AREA_ID areaId
+						,S.SHIPPING_NUMBER shippingNumber
+				        ,F.FARM_NAME farmName
+				        ,A.AREA_NAME areaName
+				        ,S.HARVEST_DATE harvestDate
+				        ,S.SHIPPING_DATE shipDate
+				        ,S.LAST_UPDATE_DATE lastUpdateDate
+				        ,NOW() as lastUpdateDateProduct
+				FROM IVB_T_SHIPPING_CONTROL S
+				inner join IVB_M_FARM F on S.FARM_ID = F.FARM_ID
+				inner join IVB_M_AREA A on S.AREA_ID = A.AREA_ID and S.FARM_ID = A.FARM_ID
+				WHERE 1 = 1
+				<if test="areaId != '-2'">
+					AND S.AREA_ID = #{areaId}
+				</if>
+				<if test="farmId != '-2'">
+					AND S.FARM_ID = #{farmId}
+				</if>
+				<if test="shippingNumber != ''">
+					AND S.SHIPPING_NUMBER LIKE #{shippingNumber}
+				</if>
+				<if test="harvestStartDate != ''">
+					AND S.HARVEST_DATE &gt;= #{harvestStartDate,jdbcType=DATE}
+				</if>
+				<if test="harvestEndDate != ''">
+					AND S.HARVEST_DATE &lt;= #{harvestEndDate,jdbcType=DATE}
+				</if>
+				<if test="shipStartDate != ''">
+					AND S.SHIPPING_DATE &gt;= #{shipStartDate,jdbcType=DATE}
+				</if>
+				<if test="shipEndDate != ''">
+					AND S.SHIPPING_DATE &lt;= #{shipEndDate,jdbcType=DATE}
+				</if>
+					AND S.DELETE_FLAG = '0'
+				<if test="(shippingNumber == '' and shipStartDate == '' and shipEndDate == '')">
+				UNION
+					SELECT P.FARM_ID farmId
+							,P.AREA_ID areaId
+							,'' as shippingNumber
+					        ,F.FARM_NAME farmName
+					        ,A.AREA_NAME areaName
+					        ,P.HARVEST_DATE harvestDate
+					        ,null as shipDate
+					        ,NOW() as lastUpdateDate
+					        ,NOW() as lastUpdateDateProduct
+					FROM IVB_T_PRODUCT P
+					inner join IVB_M_FARM F on P.FARM_ID = F.FARM_ID
+					inner join IVB_M_AREA A on P.AREA_ID = A.AREA_ID and P.FARM_ID = A.FARM_ID
+					WHERE 1 = 1
+					<if test="areaId != '-2'">
+						AND P.AREA_ID = #{areaId}
+					</if>
+					<if test="farmId != '-2'">
+						AND P.FARM_ID = #{farmId}
+					</if>
+					<if test="harvestStartDate != ''">
+						AND P.HARVEST_DATE &gt;= #{harvestStartDate,jdbcType=DATE}
+					</if>
+					<if test="harvestEndDate != ''">
+						AND P.HARVEST_DATE &lt;= #{harvestEndDate,jdbcType=DATE}
+					</if>
+						AND P.SHIPPING_DATE IS NULL
+						AND P.HARVEST_DATE IS NOT NULL
+						AND P.DELETE_FLAG = '0'
+					GROUP BY P.FARM_ID, P.AREA_ID, P.HARVEST_DATE, F.FARM_NAME, A.AREA_NAME
+				</if>
+			) RESULT
+		ORDER BY farmName, areaName, harvestDate, shipDate
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	<select id="getLastShippingNumber" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT SHIPPING_NUMBER shippingNumber
+		FROM IVB_T_SHIPPING_CONTROL
+		ORDER BY SHIPPING_NUMBER DESC
+		LIMIT 1
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map" resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM(
+			SELECT S.FARM_ID farmId
+					,S.AREA_ID areaId
+					,S.SHIPPING_NUMBER shippingNumber
+			        ,F.FARM_NAME farmName
+			        ,A.AREA_NAME areaName
+			        ,S.HARVEST_DATE harvestDate
+			        ,S.SHIPPING_DATE shipDate
+			FROM IVB_T_SHIPPING_CONTROL S
+			inner join IVB_M_FARM F on S.FARM_ID = F.FARM_ID
+			inner join IVB_M_AREA A on S.AREA_ID = A.AREA_ID and S.FARM_ID = A.FARM_ID
+			WHERE 1 = 1
+			<if test="areaId != '-2'">
+				AND S.AREA_ID = #{areaId}
+			</if>
+			<if test="farmId != '-2'">
+				AND S.FARM_ID = #{farmId}
+			</if>
+			<if test="shippingNumber != ''">
+				AND S.SHIPPING_NUMBER LIKE #{shippingNumber}
+			</if>
+			<if test="harvestStartDate != ''">
+				AND S.HARVEST_DATE &gt;= #{harvestStartDate,jdbcType=DATE}
+			</if>
+			<if test="harvestEndDate != ''">
+				AND S.HARVEST_DATE &lt;= #{harvestEndDate,jdbcType=DATE}
+			</if>
+			<if test="shipStartDate != ''">
+				AND S.SHIPPING_DATE &gt;= #{shipStartDate,jdbcType=DATE}
+			</if>
+			<if test="shipEndDate != ''">
+				AND S.SHIPPING_DATE &lt;= #{shipEndDate,jdbcType=DATE}
+			</if>
+				AND S.DELETE_FLAG = '0'
+			<if test="shippingNumber == ''">
+			UNION
+				SELECT P.FARM_ID farmId
+						,P.AREA_ID areaId
+						,'' as shippingNumber
+				        ,F.FARM_NAME farmName
+				        ,A.AREA_NAME areaName
+				        ,P.HARVEST_DATE harvestDate
+				        ,null as shipDate
+				FROM IVB_T_PRODUCT P
+				inner join IVB_M_FARM F on P.FARM_ID = F.FARM_ID
+				inner join IVB_M_AREA A on P.AREA_ID = A.AREA_ID and P.FARM_ID = A.FARM_ID
+				WHERE 1 = 1
+				<if test="areaId != '-2'">
+					AND P.AREA_ID = #{areaId}
+				</if>
+				<if test="farmId != '-2'">
+					AND P.FARM_ID = #{farmId}
+				</if>
+				<if test="harvestStartDate != ''">
+					AND P.HARVEST_DATE &gt;= #{harvestStartDate,jdbcType=DATE}
+				</if>
+				<if test="harvestEndDate != ''">
+					AND P.HARVEST_DATE &lt;= #{harvestEndDate,jdbcType=DATE}
+				</if>
+					AND P.SHIPPING_DATE IS NULL
+					AND P.HARVEST_DATE IS NOT NULL
+					AND P.DELETE_FLAG = '0'
+			</if>
+			) AS T
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_T_SHIPPING_CONTROL
+		SET 
+			<if test="shippingDate != null">
+			  SHIPPING_DATE = #{shippingDate,jdbcType=DATE},
+			</if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE SHIPPING_NUMBER = #{shippingNumber} AND LAST_UPDATE_DATE = #{lastUpdateDate}
+	</update>
+	<update id="updateProductData" parameterType="map">    	
+    	UPDATE IVB_T_PRODUCT PD, (
+    			SELECT MAX(LAST_UPDATE_DATE) as _LAST_UPDATE_DATE
+    			FROM IVB_T_PRODUCT
+    			WHERE AREA_ID = #{areaId} 
+    				AND FARM_ID = #{farmId}
+    				AND HARVEST_DATE = #{harvestDate}
+    		) LAST_UPDATE_DATE_TBL
+    	SET 
+    		SHIPPING_DATE = #{shippingDate,jdbcType=DATE}, 
+    		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR}, 
+    		LAST_UPDATE_DATE = NOW() 
+    	WHERE AREA_ID = #{areaId} 
+    		AND FARM_ID = #{farmId} 
+    		AND HARVEST_DATE = #{harvestDate}
+    		AND #{lastUpdateDate} &gt; LAST_UPDATE_DATE_TBL._LAST_UPDATE_DATE
+	</update>
+	<!-- NGHIA START 2017/05/18 -->
+	<select id="getLastUpdateDate" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0075SearchShippingScreenResult">
+		SELECT LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_T_SHIPPING_CONTROL
+		WHERE 	FARM_ID = #{farmId}
+				AND AREA_ID = #{areaId}
+				AND HARVEST_DATE = #{harvestDate}
+	</select>
+	<select id="getLastUpdateDateProduct" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0075SearchShippingScreenResult">
+		SELECT LAST_UPDATE_DATE lastUpdateDateProduct
+		FROM IVB_T_PRODUCT
+		WHERE 	FARM_ID = #{farmId}
+				AND AREA_ID = #{areaId}
+		ORDER BY LAST_UPDATE_DATE DESC
+		LIMIT 1
+	</select>
+	<!-- NGHIA END 2017/05/18 -->
+</mapper>

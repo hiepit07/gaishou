@@ -1,0 +1,208 @@
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 1 of 11 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@3b6d9dcf: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 2 of 11 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 3 of 11 in additional filter chain; firing Filter: 'LogoutFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 4 of 11 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 5 of 11 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 6 of 11 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 7 of 11 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 8 of 11 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+05-23-2017 07:56:19.855,DEBUG,D30C04D508179935F3DE99C330F6B7FE,SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 9 of 11 in additional filter chain; firing Filter: 'SessionManagementFilter'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 10 of 11 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData at position 11 of 11 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/autherror*'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/login/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/error/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0001/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0002/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0003/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0005/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0007/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0009/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0013/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0023/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0017/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0031/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0035/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0037/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0045/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0047/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0049/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0061/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0087/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0075/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Checking match of request : '/0089/insertdata'; against '/0089/**'
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Secure object: FilterInvocation: URL: /0089/insertData; Attributes: [ROLE_ADMIN, ROLE_USER, IS_AUTHENTICATED_FULLY]
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Voter: org.springframework.security.access.vote.RoleVoter@1ac872d, returned: -1
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Voter: org.springframework.security.access.vote.AuthenticatedVoter@b1927d, returned: 1
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Authorization successful
+05-23-2017 07:56:19.856,DEBUG,D30C04D508179935F3DE99C330F6B7FE,RunAsManager did not change Authentication object
+05-23-2017 07:56:19.857,DEBUG,D30C04D508179935F3DE99C330F6B7FE,/0089/insertData reached end of additional filter chain; proceeding with original chain
+05-23-2017 07:56:19.857,DEBUG,D30C04D508179935F3DE99C330F6B7FE,Request [/ict/0089/insertData] is not a multipart request
+05-23-2017 07:56:19.857,DEBUG,A387056DC1BF0F53AB037427546EE7FC,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0089/insertData]
+05-23-2017 07:56:19.857,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Looking up handler method for path /0089/insertData
+05-23-2017 07:56:19.857,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning handler method [public java.lang.String vn.bananavietnam.ict.banana.controller.Bnn0089SearchTaskController.insertData(vn.bananavietnam.ict.common.db.model.IvbMTask)]
+05-23-2017 07:56:19.857,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'bnn0089SearchTaskController'
+05-23-2017 07:56:19.857,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'xml_path'
+05-23-2017 07:56:19.858,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Read [class vn.bananavietnam.ict.common.db.model.IvbMTask] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@156f2cc]
+05-23-2017 07:56:19.858,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,vn.bananavietnam.ict.banana.service.Bnn0089SearchTaskService,insertData,[vn.bananavietnam.ict.common.db.model.IvbMTask@372b1b] METHOD START
+05-23-2017 07:56:19.858,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'transactionManager'
+05-23-2017 07:56:19.858,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Creating new transaction with name [null]: PROPAGATION_REQUIRED,ISOLATION_DEFAULT
+05-23-2017 07:56:19.859,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Creating new JDBC DriverManager Connection to [jdbc:mysql://172.16.0.175:3306/BANANA_DB_HUNG_SELENIUM?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true]
+05-23-2017 07:56:23.895,ERROR,A387056DC1BF0F53AB037427546EE7FC,U0000000001,java.lang.Exception: Could not open JDBC Connection for transaction; nested exception is com.mysql.jdbc.exceptions.jdbc4.MySQLNonTransientConnectionException: Could not create connection to database server. Attempted reconnect 3 times. Giving up.
+05-23-2017 07:56:23.895,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,vn.bananavietnam.ict.banana.service.Bnn0089SearchTaskService,insertData,[vn.bananavietnam.ict.common.db.model.IvbMTask@372b1b] METHOD END
+05-23-2017 07:56:23.900,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Written [5003] as "text/plain;charset=ISO-8859-1" using [org.springframework.http.converter.StringHttpMessageConverter@10ddb9c]
+05-23-2017 07:56:23.900,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+05-23-2017 07:56:23.900,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Successfully completed request
+05-23-2017 07:56:23.901,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Chain processed normally
+05-23-2017 07:56:23.901,DEBUG,A387056DC1BF0F53AB037427546EE7FC,SecurityContextHolder now cleared, as request processing completed
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 1 of 11 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@3b6d9dcf: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 2 of 11 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 3 of 11 in additional filter chain; firing Filter: 'LogoutFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 4 of 11 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 5 of 11 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 6 of 11 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 7 of 11 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 8 of 11 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 9 of 11 in additional filter chain; firing Filter: 'SessionManagementFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 10 of 11 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData at position 11 of 11 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/autherror*'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/login/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/error/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0001/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0002/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0003/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0005/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0007/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0009/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0013/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0023/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0017/**'
+05-23-2017 07:56:46.891,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0031/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0035/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0037/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0045/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0047/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0049/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0061/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0087/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0075/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/searchdata'; against '/0089/**'
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Secure object: FilterInvocation: URL: /0089/searchData; Attributes: [ROLE_ADMIN, ROLE_USER, IS_AUTHENTICATED_FULLY]
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Voter: org.springframework.security.access.vote.RoleVoter@1ac872d, returned: -1
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Voter: org.springframework.security.access.vote.AuthenticatedVoter@b1927d, returned: 1
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Authorization successful
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,RunAsManager did not change Authentication object
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/searchData reached end of additional filter chain; proceeding with original chain
+05-23-2017 07:56:46.892,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Request [/ict/0089/searchData] is not a multipart request
+05-23-2017 07:56:46.892,DEBUG,A387056DC1BF0F53AB037427546EE7FC,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0089/searchData]
+05-23-2017 07:56:46.892,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Looking up handler method for path /0089/searchData
+05-23-2017 07:56:46.892,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning handler method [public java.util.List<vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult> vn.bananavietnam.ict.banana.controller.Bnn0089SearchTaskController.searchData(vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions)]
+05-23-2017 07:56:46.892,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'bnn0089SearchTaskController'
+05-23-2017 07:56:46.892,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'xml_path'
+05-23-2017 07:56:46.893,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Read [class vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@156f2cc]
+05-23-2017 07:56:46.893,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,vn.bananavietnam.ict.banana.service.Bnn0089SearchTaskService,searchData,[vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions@12eea4c] METHOD START
+05-23-2017 07:56:46.893,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'transactionManager'
+05-23-2017 07:56:46.893,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,Task searching started
+05-23-2017 07:56:46.893,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Creating a new SqlSession
+05-23-2017 07:56:46.893,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e9a39]
+05-23-2017 07:56:46.894,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Fetching JDBC Connection from DataSource
+05-23-2017 07:56:46.894,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Creating new JDBC DriverManager Connection to [jdbc:mysql://172.16.0.175:3306/BANANA_DB_HUNG_SELENIUM?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true]
+05-23-2017 07:56:46.915,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Registering transaction synchronization for JDBC Connection
+05-23-2017 07:56:46.915,DEBUG,A387056DC1BF0F53AB037427546EE7FC,JDBC Connection [com.mysql.jdbc.JDBC4Connection@ab1dae] will be managed by Spring
+05-23-2017 07:56:46.916,DEBUG,A387056DC1BF0F53AB037427546EE7FC,==>  Preparing: SELECT T.TASK_ID taskId, T.TASK_NAME taskName, T.WORKING_DETAILS workingDetails, T.NOTE note, T.QUARANTINE_HANDLING_FLAG quarantineHandlingFlag, T.DELETE_FLAG deleteFlag, T.CHANGE_POINT_CODE changePointCode, T.LAST_UPDATE_DATE lastUpdateDate FROM IVB_M_TASK T WHERE 1 = 1 AND T.DELETE_FLAG = '0' ORDER BY T.TASK_NAME LIMIT ?,? 
+05-23-2017 07:56:46.916,DEBUG,A387056DC1BF0F53AB037427546EE7FC,==> Parameters: 0(Integer), 20(Integer)
+05-23-2017 07:56:46.919,DEBUG,A387056DC1BF0F53AB037427546EE7FC,<==      Total: 20
+05-23-2017 07:56:46.919,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e9a39]
+05-23-2017 07:56:46.919,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,SQL execution finished
+05-23-2017 07:56:46.919,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Fetched SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e9a39] from current transaction
+05-23-2017 07:56:46.920,DEBUG,A387056DC1BF0F53AB037427546EE7FC,==>  Preparing: SELECT COUNT(*) FROM IVB_M_TASK T WHERE 1 = 1 AND T.DELETE_FLAG = '0' ORDER BY T.TASK_ID 
+05-23-2017 07:56:46.920,DEBUG,A387056DC1BF0F53AB037427546EE7FC,==> Parameters: 
+05-23-2017 07:56:46.923,DEBUG,A387056DC1BF0F53AB037427546EE7FC,<==      Total: 1
+05-23-2017 07:56:46.923,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e9a39]
+05-23-2017 07:56:46.924,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,Task searching finished ==> 43 item(s)
+05-23-2017 07:56:46.924,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e9a39]
+05-23-2017 07:56:46.924,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@7e9a39]
+05-23-2017 07:56:46.924,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning JDBC Connection to DataSource
+05-23-2017 07:56:46.924,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,vn.bananavietnam.ict.banana.service.Bnn0089SearchTaskService,searchData,[vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions@12eea4c] METHOD END
+05-23-2017 07:56:46.927,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Written [[vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@1f6d7ab, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@1b0afd, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@c82362, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@1656e88, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@a3ae00, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@1b150b, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@177fed9, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@168dd11, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@ebd12, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@394855, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@e4e43d, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@1cf2165, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@4ef23, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@697456, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@10bbf6a, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@19d64e7, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@c1f280, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@151e58a, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@14be9e5, vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskResult@1ff01f7]] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@156f2cc]
+05-23-2017 07:56:46.927,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+05-23-2017 07:56:46.927,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Successfully completed request
+05-23-2017 07:56:46.927,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Chain processed normally
+05-23-2017 07:56:46.927,DEBUG,A387056DC1BF0F53AB037427546EE7FC,SecurityContextHolder now cleared, as request processing completed
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 1 of 11 in additional filter chain; firing Filter: 'SecurityContextPersistenceFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Obtained a valid SecurityContext from SPRING_SECURITY_CONTEXT: 'org.springframework.security.core.context.SecurityContextImpl@3b6d9dcf: Authentication: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 2 of 11 in additional filter chain; firing Filter: 'WebAsyncManagerIntegrationFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 3 of 11 in additional filter chain; firing Filter: 'LogoutFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 4 of 11 in additional filter chain; firing Filter: 'UsernamePasswordAuthenticationFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 5 of 11 in additional filter chain; firing Filter: 'BasicAuthenticationFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 6 of 11 in additional filter chain; firing Filter: 'RequestCacheAwareFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 7 of 11 in additional filter chain; firing Filter: 'SecurityContextHolderAwareRequestFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 8 of 11 in additional filter chain; firing Filter: 'AnonymousAuthenticationFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,SecurityContextHolder not populated with anonymous token, as it already contained: 'org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 9 of 11 in additional filter chain; firing Filter: 'SessionManagementFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 10 of 11 in additional filter chain; firing Filter: 'ExceptionTranslationFilter'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData at position 11 of 11 in additional filter chain; firing Filter: 'FilterSecurityInterceptor'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/autherror*'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/login/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/error/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0001/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0002/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0003/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0005/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0007/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0009/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0013/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0023/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0017/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0031/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0035/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0037/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0045/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0047/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0049/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0061/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0087/**'
+05-23-2017 07:56:47.999,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0075/**'
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Checking match of request : '/0089/getsingledata'; against '/0089/**'
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Secure object: FilterInvocation: URL: /0089/getSingleData; Attributes: [ROLE_ADMIN, ROLE_USER, IS_AUTHENTICATED_FULLY]
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Previously Authenticated: org.springframework.security.authentication.UsernamePasswordAuthenticationToken@3b6d9dcf: Principal: vn.bananavietnam.ict.common.auth.MyUser@c4907816: Username: U0000000001; Password: [PROTECTED]; Enabled: true; AccountNonExpired: true; credentialsNonExpired: true; AccountNonLocked: true; Granted Authorities: 1; Credentials: [PROTECTED]; Authenticated: true; Details: org.springframework.security.web.authentication.WebAuthenticationDetails@21a2c: RemoteIpAddress: 0:0:0:0:0:0:0:1; SessionId: E1B5B6911E37485198DD1AD21805CE02; Granted Authorities: 1
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Voter: org.springframework.security.access.vote.RoleVoter@1ac872d, returned: -1
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Voter: org.springframework.security.access.vote.AuthenticatedVoter@b1927d, returned: 1
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Authorization successful
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,RunAsManager did not change Authentication object
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,/0089/getSingleData reached end of additional filter chain; proceeding with original chain
+05-23-2017 07:56:48.000,DEBUG,E1B5B6911E37485198DD1AD21805CE02,Request [/ict/0089/getSingleData] is not a multipart request
+05-23-2017 07:56:48.000,DEBUG,A387056DC1BF0F53AB037427546EE7FC,DispatcherServlet with name 'appServlet' processing POST request for [/ict/0089/getSingleData]
+05-23-2017 07:56:48.000,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Looking up handler method for path /0089/getSingleData
+05-23-2017 07:56:48.000,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning handler method [public vn.bananavietnam.ict.common.db.model.IvbMTask vn.bananavietnam.ict.banana.controller.Bnn0089SearchTaskController.getSingleData(vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions)]
+05-23-2017 07:56:48.000,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'bnn0089SearchTaskController'
+05-23-2017 07:56:48.000,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'xml_path'
+05-23-2017 07:56:48.001,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Read [class vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions] as "application/json" with [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@156f2cc]
+05-23-2017 07:56:48.001,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,vn.bananavietnam.ict.banana.service.Bnn0089SearchTaskService,getSingleData,[vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions@8cde37] METHOD START
+05-23-2017 07:56:48.001,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning cached instance of singleton bean 'transactionManager'
+05-23-2017 07:56:48.001,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Creating a new SqlSession
+05-23-2017 07:56:48.001,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Registering transaction synchronization for SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cc1bb7]
+05-23-2017 07:56:48.001,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Fetching JDBC Connection from DataSource
+05-23-2017 07:56:48.001,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Creating new JDBC DriverManager Connection to [jdbc:mysql://172.16.0.175:3306/BANANA_DB_HUNG_SELENIUM?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true]
+05-23-2017 07:56:48.019,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Registering transaction synchronization for JDBC Connection
+05-23-2017 07:56:48.019,DEBUG,A387056DC1BF0F53AB037427546EE7FC,JDBC Connection [com.mysql.jdbc.JDBC4Connection@12f122d] will be managed by Spring
+05-23-2017 07:56:48.019,DEBUG,A387056DC1BF0F53AB037427546EE7FC,==>  Preparing: select TASK_ID, TASK_NAME, WORKING_DETAILS, NOTE, QUARANTINE_HANDLING_FLAG, CHANGE_POINT_CODE, CREATE_USER_ID, CREATE_DATE, UPDATE_USER_ID, LAST_UPDATE_DATE, DELETE_FLAG from IVB_M_TASK where TASK_ID = ? 
+05-23-2017 07:56:48.019,DEBUG,A387056DC1BF0F53AB037427546EE7FC,==> Parameters: T043(String)
+05-23-2017 07:56:48.021,DEBUG,A387056DC1BF0F53AB037427546EE7FC,<==      Total: 1
+05-23-2017 07:56:48.021,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Releasing transactional SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cc1bb7]
+05-23-2017 07:56:48.021,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Transaction synchronization deregistering SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cc1bb7]
+05-23-2017 07:56:48.021,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Transaction synchronization closing SqlSession [org.apache.ibatis.session.defaults.DefaultSqlSession@1cc1bb7]
+05-23-2017 07:56:48.021,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Returning JDBC Connection to DataSource
+05-23-2017 07:56:48.021,INFO ,A387056DC1BF0F53AB037427546EE7FC,U0000000001,vn.bananavietnam.ict.banana.service.Bnn0089SearchTaskService,getSingleData,[vn.bananavietnam.ict.banana.component.Bnn0089SearchTaskConditions@8cde37] METHOD END
+05-23-2017 07:56:48.022,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Written [vn.bananavietnam.ict.common.db.model.IvbMTask@13a91dd] as "application/json;charset=UTF-8" using [org.springframework.http.converter.json.MappingJackson2HttpMessageConverter@156f2cc]
+05-23-2017 07:56:48.022,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
+05-23-2017 07:56:48.022,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Successfully completed request
+05-23-2017 07:56:48.022,DEBUG,A387056DC1BF0F53AB037427546EE7FC,Chain processed normally
+05-23-2017 07:56:48.023,DEBUG,A387056DC1BF0F53AB037427546EE7FC,SecurityContextHolder now cleared, as request processing completed

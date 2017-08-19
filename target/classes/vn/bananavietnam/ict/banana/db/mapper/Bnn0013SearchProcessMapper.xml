@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper
+	namespace="vn.bananavietnam.ict.banana.db.mapper.Bnn0013SearchProcessMapper">
+	<select id="searchKind" flushCache="true" parameterType="map" resultType="vn.bananavietnam.ict.banana.component.Bnn0017SearchBananaKindResult">
+		SELECT
+		KIND_ID kindId ,
+		KIND_NAME kindName
+		FROM IVB_M_KIND
+		WHERE DELETE_FLAG = '0'
+		ORDER BY KIND_ID
+	</select>
+	<select id="searchData" flushCache="true" parameterType="map"
+		resultType="vn.bananavietnam.ict.banana.component.Bnn0013SearchProcessResult">
+		SELECT 
+			ivb_m_cul_pro.PROCESS_ID processId,
+			ivb_m_cul_pro.PROCESS_NAME processName,
+			ivb_m_cul_pro.LAST_UPDATE_DATE lastUpdateDate
+		FROM IVB_M_PROCESS ivb_m_cul_pro 
+		WHERE 1 = 1
+		<if test="processName != ''">
+			AND ivb_m_cul_pro.PROCESS_NAME LIKE #{processName}
+		</if>
+		AND ivb_m_cul_pro.DELETE_FLAG = '0'
+		ORDER BY ivb_m_cul_pro.PROCESS_NAME
+		LIMIT #{fromRow},#{itemCount}
+	</select>
+	<select id="getSearchDataTotalCounts" flushCache="true" parameterType="map"
+		resultType="java.lang.String">
+		SELECT COUNT(*)
+		FROM IVB_M_PROCESS
+		WHERE 1 = 1
+		<if test="processName != ''">
+			AND PROCESS_NAME LIKE #{processName}
+		</if>
+		AND DELETE_FLAG = '0'
+		ORDER BY PROCESS_ID
+	</select>
+	<select id="getLastProcessId" flushCache="true" resultType="java.lang.String">
+		SELECT PROCESS_ID processId
+		FROM IVB_M_PROCESS
+		ORDER BY PROCESS_ID DESC
+		LIMIT 1
+	</select>
+	<update id="updateData" parameterType="map">
+		UPDATE IVB_M_PROCESS
+		SET 
+			<if test="processName != null" >
+	        	PROCESS_NAME = #{processName,jdbcType=VARCHAR},
+	      	</if>
+      		UPDATE_USER_ID = #{updateUserId,jdbcType=VARCHAR},
+			LAST_UPDATE_DATE = NOW(),
+			DELETE_FLAG = #{deleteFlag}  
+    	WHERE PROCESS_ID = #{processId} AND LAST_UPDATE_DATE = #{lastUpdateDate} AND DELETE_FLAG = '0'
+	</update>
+	
+</mapper>
